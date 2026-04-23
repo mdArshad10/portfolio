@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Mail, MapPin, Send } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { GitHubDark, LinkedIn } from "developer-icons"
+import axios from 'axios'
 
 import { personalInfo } from "@/data/portfolio"
 
@@ -10,11 +11,25 @@ export function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
   const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // In a real project, wire up to an email API
-    setSent(true)
-    setForm({ name: "", email: "", message: "" })
+  const handleSubmit = async (e: React.FormEvent) => {
+    try {
+      e.preventDefault()
+      // In a real project, wire up to an email API
+      setSent(true)
+      const resp = await axios.post("/api/send-email", {
+        email: form.email,
+        message: form.message,
+        name: form.name,
+      })
+      if(resp.status == 200){
+        setForm({ name: "", email: "", message: "" })
+      }
+    } catch (error:unknown) {
+      const err = error instanceof Error ? error : {message:"failed to send mail"}
+      console.log("error",err.message);
+    }finally{
+      setSent(false)
+    }
   }
 
   return (
@@ -169,6 +184,7 @@ export function ContactSection() {
                   id="contact-submit"
                   className="label-md inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#7F77DD] px-6 py-3 text-white transition-all duration-200 hover:bg-[#8C84EB]"
                   style={{ border: "1.5px solid #7F77DD" }}
+                  disabled={sent}
                 >
                   Send Message
                   <Send className="h-4 w-4" />
