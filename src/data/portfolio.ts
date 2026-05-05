@@ -3,7 +3,7 @@ export const personalInfo = {
   tagline: "Full-stack developer who ships clean, user-focused web apps.",
   subtitle:
     "Full Stack Developer with 1+ years of hands-on experience building and deploying web applications end-to-end. From designing responsive interfaces to building RESTful APIs and managing databases — I take features from idea to production.",
-  email: "",
+  email: "arshadwebdeveloper10@gmail.com",
   location: "Kolkata, West Bengal, India",
   github: "https://github.com/mdArshad10",
   linkedin: "https://www.linkedin.com/in/md-arshad-developer/",

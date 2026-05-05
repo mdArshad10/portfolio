@@ -1,4 +1,3 @@
-
 import { useInView } from "@/hooks/use-in-view";
 import { skills } from "@/data/portfolio";
 
@@ -9,32 +8,47 @@ export function SkillsSection() {
     <section
       id="skills"
       ref={ref as React.RefObject<HTMLElement>}
-      className="py-32"
-      style={{ background: "#1c1b1b" }}
+      className="py-32 bg-background border-b border-border/40 overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
         {/* Section header */}
         <div
-          className={`mb-20 transition-all duration-700 ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          className={`mb-20 transition-all duration-700 ease-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="label-md mb-3 text-[#7F77DD]">Arsenal</p>
-          <h2 className="headline-md text-[#e5e2e1]">Technical Arsenal</h2>
+          <div className="flex items-center gap-4 mb-6">
+             <span className="font-mono text-xs font-bold tracking-widest uppercase text-primary border border-primary/30 px-3 py-1 bg-primary/5">
+              SYS.03 //
+            </span>
+            <span className="font-mono text-xs tracking-wider uppercase text-muted-foreground">
+              Arsenal
+            </span>
+          </div>
+          <h2 
+            className="text-foreground font-black uppercase tracking-tighter leading-none"
+            style={{ fontSize: "clamp(4rem, 8vw, 8rem)" }}
+          >
+            Technical Arsenal
+          </h2>
         </div>
 
-        {/* Skills grid */}
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Skills grid - Brutalist */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-12">
           {Object.entries(skills).map(([category, items], catIdx) => (
             <div
               key={category}
-              className={`transition-all duration-700 ${
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              className={`group flex flex-col border-2 border-foreground bg-background transition-all duration-700 ease-out ${
+                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
-              style={{ transitionDelay: `${catIdx * 100}ms` }}
+              style={{ transitionDelay: `${catIdx * 150}ms` }}
             >
-              <p className="label-md mb-6 text-[#928f9d]">{category}</p>
-              <div className="flex flex-col gap-3">
+              <div className="border-b-2 border-foreground p-6 bg-foreground text-background">
+                <h3 className="font-black text-2xl uppercase tracking-tight">
+                  {category}
+                </h3>
+              </div>
+              <div className="p-6 flex flex-wrap gap-3">
                 {items.map((skill, idx) => (
                   <SkillRow key={skill} skill={skill} delay={idx * 50 + catIdx * 100} inView={inView} />
                 ))}
@@ -57,19 +71,13 @@ function SkillRow({
   inView: boolean;
 }) {
   return (
-    <div
-      className={`group flex items-center gap-3 transition-all duration-500 ${
-        inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-3"
+    <span
+      className={`font-mono text-sm font-bold uppercase border-2 border-foreground px-3 py-2 transition-all duration-300 hover:bg-primary hover:border-primary hover:text-primary-foreground cursor-default ${
+        inView ? "opacity-100 scale-100" : "opacity-0 scale-95"
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <span
-        className="h-px flex-1 bg-[#474552] transition-all duration-300 group-hover:bg-[#7F77DD]"
-        style={{ maxWidth: "24px" }}
-      />
-      <span className="title-sm text-[#c8c4d4] transition-colors duration-200 group-hover:text-[#c5c0ff]">
-        {skill}
-      </span>
-    </div>
+      {skill}
+    </span>
   );
 }

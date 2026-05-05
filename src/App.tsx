@@ -8,7 +8,7 @@ import { NotFoundPage } from "./pages/NotFoundPage"
 export function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#131313]">
+      <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Download } from "lucide-react"
 import { personalInfo } from "@/data/portfolio"
 import { Link } from "react-router-dom"
 
@@ -16,109 +16,108 @@ export function HeroSection() {
     <section
       id="home"
       ref={ref}
-      className="relative flex min-h-screen items-end overflow-hidden pt-32 pb-24"
+      className="relative flex min-h-screen items-center border-b border-border/40 overflow-hidden bg-background"
     >
-      {/* Background gradient blob */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div
-          className="absolute top-0 left-0 h-[50vh] w-[50vw] rounded-full opacity-10 blur-[120px]"
-          style={{
-            background: "radial-gradient(circle, #7F77DD 0%, transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute right-0 bottom-0 h-[40vh] w-[40vw] rounded-full opacity-6 blur-[100px]"
-          style={{
-            background: "radial-gradient(circle, #8C84EB 0%, transparent 70%)",
-          }}
-        />
-      </div>
-
-      {/* Subtle grid overlay */}
+      {/* Stark Architectural Grid Background */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        className="pointer-events-none absolute inset-0 opacity-[0.05] dark:opacity-[0.1]"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(197,192,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(197,192,255,1) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+          backgroundImage: `
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px)
+          `,
+          backgroundSize: "4rem 4rem",
+          backgroundPosition: "center center",
         }}
         aria-hidden="true"
       />
+      
+      {/* Bold diagonal accent line */}
+      <div 
+        className="pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]" 
+        aria-hidden="true" 
+      />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="max-w-4xl">
-          {/* Overline label */}
-          <p
-            className={`label-md mb-8 text-[#7F77DD] transition-all duration-700 ${
-              visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+      <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end pb-20 pt-32">
+        
+        {/* Main Content (Left heavy, asymmetrical) */}
+        <div className="lg:col-span-9 flex flex-col justify-end">
+          {/* Overline - Precision style */}
+          <div
+            className={`flex items-center gap-4 mb-10 transition-all duration-700 ease-out ${
+              visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            Full Stack Developer
-          </p>
+            <span className="font-mono text-xs font-bold tracking-widest uppercase text-primary border border-primary/30 px-3 py-1 bg-primary/5">
+              SYS.01 //
+            </span>
+            <span className="font-mono text-xs tracking-wider uppercase text-muted-foreground">
+              Full Stack Engineer
+            </span>
+          </div>
 
-          {/* Main heading */}
+          {/* Extreme Scale Heading */}
           <h1
-            className={`mb-8 text-[#e5e2e1] transition-all delay-100 duration-700 ${
-              visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+            className={`text-foreground transition-all delay-100 duration-1000 ease-out ${
+              visible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-              fontWeight: 500,
-              letterSpacing: "-0.025em",
-              lineHeight: 1.08,
+              fontSize: "clamp(3.5rem, 11vw, 10rem)",
+              fontWeight: 900,
+              letterSpacing: "-0.04em",
+              lineHeight: 0.9,
+              textTransform: "uppercase",
             }}
           >
             {personalInfo.tagline}
           </h1>
+        </div>
 
-          {/* Sub-description */}
-          <p
-            className={`body-md mb-12 max-w-xl text-[#928f9d] transition-all delay-200 duration-700 ${
-              visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
-          >
+        {/* Secondary Info & CTAs (Right column) */}
+        <div 
+          className={`lg:col-span-3 flex flex-col justify-end lg:pb-4 transition-all delay-300 duration-1000 ease-out ${
+            visible ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+          }`}
+        >
+          {/* Sub-description with stark contrast */}
+          <p className="text-lg lg:text-xl font-light text-muted-foreground mb-12 border-l-2 border-primary/50 pl-6 max-w-md leading-relaxed">
             {personalInfo.subtitle}
           </p>
 
-          {/* CTAs */}
-          <div
-            className={`flex flex-wrap items-center gap-4 transition-all delay-300 duration-700 ${
-              visible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-            }`}
-          >
+          {/* Bold CTAs */}
+          <div className="flex flex-col gap-4">
+            <a
+              href="/resume.pdf"
+              download
+              className="group relative flex w-full items-center justify-between bg-primary px-6 py-5 text-primary-foreground transition-all hover:bg-primary/90"
+            >
+              <span className="font-mono text-sm font-bold tracking-wider uppercase">
+                Download Resume
+              </span>
+              <Download className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
+              {/* Brutalist hover shadow */}
+              <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3" />
+            </a>
+            
             <Link
               to="#projects"
-              id="hero-view-projects"
-              className="label-md inline-flex items-center gap-2 rounded-[4px] bg-[#7F77DD] px-6 py-3 text-white transition-all duration-200 hover:bg-[#8C84EB] hover:shadow-lg hover:shadow-[#7F77DD]/20"
-              style={{ border: "1.5px solid #7F77DD" }}
+              className="group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted"
             >
-              View Projects
-              <ArrowRight className="h-4 w-4" />
+              <span className="font-mono text-sm font-bold tracking-wider uppercase">
+                View Projects
+              </span>
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link
-              to="#contact"
-              id="hero-contact"
-              className="label-md inline-flex items-center gap-2 rounded-[4px] px-6 py-3 text-[#c5c0ff] transition-all duration-200 hover:bg-[#2a2a2a]"
-              style={{ border: "0.5px solid rgba(71,69,82,0.4)" }}
-            >
-              Get in Touch
-            </Link>
-          </div>
-        </div>
-
-        {/* Floating bottom decoration */}
-        <div
-          className={`absolute right-12 bottom-0 hidden text-right transition-all delay-500 duration-700 lg:block ${
-            visible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <p className="label-md text-[#474552]">Available for Senior Roles</p>
-          <div className="mt-2 flex items-center justify-end gap-2">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[#7F77DD]" />
-            <span className="label-md text-[#7F77DD]">Open to Work</span>
           </div>
         </div>
       </div>
+      
+      {/* Bottom architectural border element */}
+      <div 
+        className={`absolute bottom-0 left-0 h-[2px] bg-foreground transition-all duration-1000 ease-out ${
+          visible ? "w-[15%]" : "w-0"
+        }`} 
+      />
     </section>
   )
 }
