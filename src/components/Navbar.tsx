@@ -20,8 +20,8 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
-
-  const isProjectPage = location.pathname.startsWith("/projects/")
+  
+  
 
   return (
     <nav
