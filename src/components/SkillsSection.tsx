@@ -22,14 +22,14 @@ export function SkillsSection() {
               SYS.03 //
             </span>
             <span className="font-mono text-xs tracking-wider uppercase text-muted-foreground">
-              Arsenal
+              Capabilities
             </span>
           </div>
           <h2 
             className="text-foreground font-black uppercase tracking-tighter leading-none"
             style={{ fontSize: "clamp(4rem, 8vw, 8rem)" }}
           >
-            Technical Arsenal
+            Technical capabilities
           </h2>
         </div>
 

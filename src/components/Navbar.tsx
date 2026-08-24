@@ -21,6 +21,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false)
+    }
+
+    window.addEventListener("keydown", closeOnEscape)
+    return () => window.removeEventListener("keydown", closeOnEscape)
+  }, [menuOpen])
+
   const isProjectPage = location.pathname.startsWith("/projects/")
 
   return (
@@ -48,7 +59,7 @@ export function Navbar() {
           <div className="hidden items-center gap-4 md:flex">
             {isProjectPage ? (
               <>
-                <NavLink href="/#work" label="WORK" />
+                <NavLink href="/#projects" label="PROJECTS" />
                 <NavLink href="/#skills" label="EXPERTISE" />
                 <NavLink href="/#contact" label="CONTACT" />
               </>
@@ -72,7 +83,9 @@ export function Navbar() {
               id="mobile-menu-toggle"
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex h-10 w-10 flex-col items-center justify-center border-2 border-foreground transition-colors hover:bg-foreground hover:text-background focus:outline-none md:hidden"
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
               <div className="relative h-4 w-5">
                 <span
@@ -94,24 +107,27 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu - Stark */}
-          <div
-            className={`overflow-hidden bg-background transition-all duration-300 md:hidden ${
-              menuOpen ? "max-h-64 border-t-2 border-foreground" : "max-h-0"
-            }`}
-          >
-            <div className="flex flex-col py-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="border-b-2 border-transparent px-4 py-4 font-mono text-lg font-bold text-foreground uppercase transition-colors hover:border-foreground hover:bg-primary hover:text-primary-foreground"
-                >
-                  {link.label.toUpperCase()}
-                </a>
-              ))}
-            </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          id="mobile-navigation"
+          data-open={menuOpen}
+          aria-hidden={!menuOpen}
+          className="t-panel-slide absolute top-full right-0 left-0 overflow-hidden border-b-2 border-foreground bg-background md:hidden"
+        >
+          <div className="mx-auto flex w-full max-w-[1400px] flex-col px-6 py-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                tabIndex={menuOpen ? 0 : -1}
+                onClick={() => setMenuOpen(false)}
+                className="flex min-h-12 items-center border-b border-border px-1 py-3 font-mono text-base font-bold text-foreground uppercase transition-colors last:border-b-0 hover:bg-primary hover:px-3 hover:text-primary-foreground"
+              >
+                {link.label.toUpperCase()}
+              </a>
+            ))}
           </div>
         </div>
       </div>

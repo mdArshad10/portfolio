@@ -1,11 +1,12 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Code2, ExternalLink } from "lucide-react";
 import { useInView } from "@/hooks/use-in-view";
-import { projects, relatedProjects } from "@/data/portfolio";
+import { projects } from "@/data/portfolio";
 
 export function ProjectDetailPage() {
   const { id } = useParams<{ id: string }>();
   const project = projects.find((p) => p.id === id);
+  const relatedProjects = projects.filter((candidate) => candidate.id !== id).slice(0, 2);
   const { ref: heroRef, inView: heroInView } = useInView({ threshold: 0.05 });
   const { ref: detailRef, inView: detailInView } = useInView({ threshold: 0.05 });
 
@@ -24,7 +25,7 @@ export function ProjectDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <main id="main-content" className="min-h-screen bg-background">
       {/* Hero */}
       <section
         ref={heroRef as React.RefObject<HTMLElement>}
@@ -39,7 +40,7 @@ export function ProjectDetailPage() {
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 lg:px-12">
           {/* Back link */}
           <Link
-            to="/"
+            to="/#projects"
             id="project-detail-back"
             className={`font-mono text-xs font-bold uppercase tracking-widest mb-16 inline-flex items-center gap-2 text-muted-foreground border-b-2 border-transparent pb-1 transition-all duration-300 hover:text-foreground hover:border-foreground ${
               heroInView ? "opacity-100" : "opacity-0"
@@ -185,9 +186,9 @@ export function ProjectDetailPage() {
                   detailInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                <p className="font-mono text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">
+                <h2 className="font-mono text-xs font-bold tracking-widest uppercase text-muted-foreground mb-8">
                   // Core_Features_
-                </p>
+                </h2>
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   {project.features.map((feat, i) => (
                     <div
@@ -197,9 +198,9 @@ export function ProjectDetailPage() {
                       }`}
                       style={{ transitionDelay: `${i * 80 + 200}ms` }}
                     >
-                      <h4 className="font-mono text-sm font-bold uppercase tracking-wider mb-4 transition-colors">
+                      <h3 className="font-mono text-sm font-bold uppercase tracking-wider mb-4 transition-colors">
                         {feat.title}
-                      </h4>
+                      </h3>
                       <p className="text-muted-foreground font-light transition-colors group-hover:text-primary-foreground/90">
                         {feat.desc}
                       </p>
@@ -229,11 +230,11 @@ export function ProjectDetailPage() {
                 <div className="flex flex-col gap-10">
                   {Object.entries(project.stack).map(([layer, techs]) => (
                     <div key={layer}>
-                      <p className="font-mono text-xs font-bold uppercase tracking-widest text-background/60 mb-4">
+                      <p className="font-mono text-xs font-bold uppercase tracking-widest text-background/75 mb-4">
                         {layer}
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {techs.map((tech:any) => (
+                        {techs.map((tech: string) => (
                           <span key={tech} className="font-mono text-xs font-bold uppercase border border-background/30 px-3 py-1 bg-background/5 transition-colors hover:bg-background hover:text-foreground">
                             {tech}
                           </span>
@@ -253,7 +254,7 @@ export function ProjectDetailPage() {
         <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12">
           <div className="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-none">
-              Adjacent<br/>Systems
+              More<br/>Projects
             </h2>
             <Link
               to="/#projects"
@@ -268,7 +269,7 @@ export function ProjectDetailPage() {
             {relatedProjects.map((rp) => (
               <Link
                 key={rp.id}
-                to={`/project/${rp.id}`}
+                to={`/projects/${rp.id}`}
                 className="group flex flex-col justify-between border-2 border-foreground p-8 transition-all duration-300 hover:bg-foreground hover:text-background"
               >
                 <div>
@@ -282,7 +283,7 @@ export function ProjectDetailPage() {
                     {rp.title}
                   </h3>
                   <p className="font-light text-muted-foreground group-hover:text-background/80 mb-8 line-clamp-3">
-                    {rp.desc}
+                    {rp.shortDesc}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -302,6 +303,6 @@ export function ProjectDetailPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

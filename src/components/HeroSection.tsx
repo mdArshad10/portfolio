@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Download } from "lucide-react"
+import { ArrowRight, Mail } from "lucide-react"
 import { personalInfo } from "@/data/portfolio"
-import { Link } from "react-router-dom"
 
 export function HeroSection() {
   const [visible, setVisible] = useState(false)
@@ -16,7 +15,7 @@ export function HeroSection() {
     <section
       id="home"
       ref={ref}
-      className="relative flex min-h-screen items-center border-b border-border/40 overflow-hidden bg-background"
+      className="relative flex min-h-[100svh] items-center overflow-hidden border-b border-border/40 bg-background"
     >
       {/* Stark Architectural Grid Background */}
       <div
@@ -38,7 +37,7 @@ export function HeroSection() {
         aria-hidden="true" 
       />
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end pb-20 pt-32">
+      <div className="relative mx-auto grid w-full max-w-[1400px] grid-cols-1 items-end gap-10 px-6 pt-28 pb-16 sm:gap-12 sm:pt-32 sm:pb-20 lg:grid-cols-12 lg:px-12">
         
         {/* Main Content (Left heavy, asymmetrical) */}
         <div className="lg:col-span-9 flex flex-col justify-end">
@@ -62,7 +61,7 @@ export function HeroSection() {
               visible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
             style={{
-              fontSize: "clamp(3.5rem, 11vw, 10rem)",
+              fontSize: "clamp(3rem, 10vw, 9.5rem)",
               fontWeight: 900,
               letterSpacing: "-0.04em",
               lineHeight: 0.9,
@@ -80,34 +79,33 @@ export function HeroSection() {
           }`}
         >
           {/* Sub-description with stark contrast */}
-          <p className="text-lg lg:text-xl font-light text-muted-foreground mb-12 border-l-2 border-primary/50 pl-6 max-w-md leading-relaxed">
+          <p className="mb-10 max-w-md border-l border-primary pl-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:mb-12 lg:text-xl">
             {personalInfo.subtitle}
           </p>
 
           {/* Bold CTAs */}
           <div className="flex flex-col gap-4">
             <a
-              href="/resume.pdf"
-              download
+              href="#projects"
               className="group relative flex w-full items-center justify-between bg-primary px-6 py-5 text-primary-foreground transition-all hover:bg-primary/90"
-            >
-              <span className="font-mono text-sm font-bold tracking-wider uppercase">
-                Download Resume
-              </span>
-              <Download className="h-5 w-5 transition-transform group-hover:-translate-y-1" />
-              {/* Brutalist hover shadow */}
-              <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3" />
-            </a>
-            
-            <Link
-              to="#projects"
-              className="group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted"
             >
               <span className="font-mono text-sm font-bold tracking-wider uppercase">
                 View Projects
               </span>
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+              {/* Brutalist hover shadow */}
+              <div className="absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3" />
+            </a>
+            
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted"
+            >
+              <span className="font-mono text-sm font-bold tracking-wider uppercase">
+                Email Arshad
+              </span>
+              <Mail className="h-5 w-5 transition-transform group-hover:-translate-y-0.5" />
+            </a>
           </div>
         </div>
       </div>

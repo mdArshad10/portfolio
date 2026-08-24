@@ -11,24 +11,24 @@
   --font-heading: 'Inter Variable', sans-serif;
 
   /* Brand Colors */
-  --color-primary-purple: #7F77DD;
-  --color-primary-purple-dim: #C5C0FF;
-  --color-primary-container: #8C84EB;
+  --color-primary-purple: oklch(0.52 0.18 285);
+  --color-primary-purple-dim: oklch(0.84 0.09 285);
+  --color-primary-container: oklch(0.61 0.16 285);
 
   /* Surface Tiers */
-  --color-surface-lowest: #0e0e0e;
-  --color-surface-low: #1c1b1b;
-  --color-surface: #131313;
-  --color-surface-container: #201f1f;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353534;
-  --color-surface-bright: #3a3939;
+  --color-surface-lowest: oklch(0.14 0.006 285);
+  --color-surface-low: oklch(0.19 0.006 285);
+  --color-surface: oklch(0.16 0.006 285);
+  --color-surface-container: oklch(0.21 0.006 285);
+  --color-surface-container-high: oklch(0.25 0.006 285);
+  --color-surface-container-highest: oklch(0.29 0.006 285);
+  --color-surface-bright: oklch(0.32 0.006 285);
 
   /* On-Surface */
-  --color-on-surface: #e5e2e1;
-  --color-on-surface-variant: #c8c4d4;
-  --color-outline: #928f9d;
-  --color-outline-variant: #474552;
+  --color-on-surface: oklch(0.92 0.008 285);
+  --color-on-surface-variant: oklch(0.82 0.02 285);
+  --color-outline: oklch(0.68 0.025 285);
+  --color-outline-variant: oklch(0.42 0.025 285);
 
   /* Shadcn token mappings */
   --color-background: var(--background);
@@ -71,75 +71,170 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-/* Light mode — keeps shadcn defaults but override primary */
+/* Light mode */
 :root {
-  --background: #ffffff;
-  --foreground: #131313;
-  --card: #f5f5f5;
-  --card-foreground: #131313;
-  --popover: #ffffff;
-  --popover-foreground: #131313;
-  --primary: #7F77DD;
-  --primary-foreground: #ffffff;
-  --secondary: #f0f0f0;
-  --secondary-foreground: #131313;
-  --muted: #f0f0f0;
-  --muted-foreground: #928f9d;
-  --accent: #e4dfff;
-  --accent-foreground: #131313;
+  --background: oklch(0.98 0.006 285);
+  --foreground: oklch(0.18 0.012 285);
+  --card: oklch(0.95 0.008 285);
+  --card-foreground: oklch(0.18 0.012 285);
+  --popover: oklch(0.98 0.006 285);
+  --popover-foreground: oklch(0.18 0.012 285);
+  --primary: oklch(0.48 0.18 285);
+  --primary-foreground: oklch(0.98 0.006 285);
+  --secondary: oklch(0.93 0.012 285);
+  --secondary-foreground: oklch(0.18 0.012 285);
+  --muted: oklch(0.93 0.012 285);
+  --muted-foreground: oklch(0.43 0.025 285);
+  --accent: oklch(0.91 0.045 285);
+  --accent-foreground: oklch(0.18 0.012 285);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(71, 69, 82, 0.2);
-  --input: rgba(71, 69, 82, 0.15);
-  --ring: #7F77DD;
+  --border: oklch(0.58 0.025 285 / 0.34);
+  --input: oklch(0.58 0.025 285 / 0.28);
+  --ring: oklch(0.48 0.18 285);
   --radius: 0.25rem;
-  --chart-1: #7F77DD;
-  --chart-2: #C5C0FF;
-  --chart-3: #8C84EB;
-  --chart-4: #454269;
-  --chart-5: #2a1c84;
-  --sidebar: #f5f5f5;
-  --sidebar-foreground: #131313;
-  --sidebar-primary: #7F77DD;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e4dfff;
-  --sidebar-accent-foreground: #131313;
-  --sidebar-border: rgba(71, 69, 82, 0.2);
-  --sidebar-ring: #7F77DD;
+  --chart-1: oklch(0.48 0.18 285);
+  --chart-2: oklch(0.78 0.1 285);
+  --chart-3: oklch(0.58 0.16 285);
+  --chart-4: oklch(0.43 0.07 285);
+  --chart-5: oklch(0.3 0.13 285);
+  --sidebar: oklch(0.95 0.008 285);
+  --sidebar-foreground: oklch(0.18 0.012 285);
+  --sidebar-primary: oklch(0.48 0.18 285);
+  --sidebar-primary-foreground: oklch(0.98 0.006 285);
+  --sidebar-accent: oklch(0.91 0.045 285);
+  --sidebar-accent-foreground: oklch(0.18 0.012 285);
+  --sidebar-border: oklch(0.58 0.025 285 / 0.34);
+  --sidebar-ring: oklch(0.48 0.18 285);
 }
 
-/* Dark mode — Precision Architect palette */
+/* Dark mode: Precision Architect palette */
 .dark {
-  --background: #131313;
-  --foreground: #e5e2e1;
-  --card: #201f1f;
-  --card-foreground: #e5e2e1;
-  --popover: #201f1f;
-  --popover-foreground: #e5e2e1;
-  --primary: #c5c0ff;
-  --primary-foreground: #2a1c84;
-  --secondary: #454269;
-  --secondary-foreground: #e5e2e1;
-  --muted: #2a2a2a;
-  --muted-foreground: #928f9d;
-  --accent: #353534;
-  --accent-foreground: #e5e2e1;
+  --background: oklch(0.17 0.008 285);
+  --foreground: oklch(0.92 0.008 285);
+  --card: oklch(0.22 0.008 285);
+  --card-foreground: oklch(0.92 0.008 285);
+  --popover: oklch(0.22 0.008 285);
+  --popover-foreground: oklch(0.92 0.008 285);
+  --primary: oklch(0.83 0.1 285);
+  --primary-foreground: oklch(0.28 0.11 285);
+  --secondary: oklch(0.42 0.07 285);
+  --secondary-foreground: oklch(0.92 0.008 285);
+  --muted: oklch(0.27 0.008 285);
+  --muted-foreground: oklch(0.72 0.025 285);
+  --accent: oklch(0.31 0.012 285);
+  --accent-foreground: oklch(0.92 0.008 285);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: rgba(71, 69, 82, 0.2);
-  --input: rgba(255, 255, 255, 0.08);
-  --ring: #7F77DD;
-  --chart-1: #c5c0ff;
-  --chart-2: #7F77DD;
-  --chart-3: #8C84EB;
-  --chart-4: #efc04c;
-  --chart-5: #454269;
-  --sidebar: #201f1f;
-  --sidebar-foreground: #e5e2e1;
-  --sidebar-primary: #7F77DD;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #353534;
-  --sidebar-accent-foreground: #e5e2e1;
-  --sidebar-border: rgba(71, 69, 82, 0.2);
-  --sidebar-ring: #7F77DD;
+  --border: oklch(0.7 0.025 285 / 0.32);
+  --input: oklch(0.92 0.008 285 / 0.12);
+  --ring: oklch(0.83 0.1 285);
+  --chart-1: oklch(0.83 0.1 285);
+  --chart-2: oklch(0.58 0.16 285);
+  --chart-3: oklch(0.65 0.15 285);
+  --chart-4: oklch(0.8 0.15 85);
+  --chart-5: oklch(0.42 0.07 285);
+  --sidebar: oklch(0.22 0.008 285);
+  --sidebar-foreground: oklch(0.92 0.008 285);
+  --sidebar-primary: oklch(0.58 0.16 285);
+  --sidebar-primary-foreground: oklch(0.98 0.006 285);
+  --sidebar-accent: oklch(0.31 0.012 285);
+  --sidebar-accent-foreground: oklch(0.92 0.008 285);
+  --sidebar-border: oklch(0.7 0.025 285 / 0.32);
+  --sidebar-ring: oklch(0.83 0.1 285);
+}
+
+/* transitions-dev — copy this :root block into your project once.
+   Every transition snippet reads from these semantic names. */
+:root {
+  /* Card resize */
+  --resize-dur: 300ms;
+  --resize-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Number pop-in */
+  --digit-dur: 500ms;
+  --digit-distance: 8px;
+  --digit-stagger: 70ms;
+  --digit-blur: 2px;
+  --digit-ease: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --digit-dir-x: 0;
+  --digit-dir-y: 1;
+  /* Notification badge */
+  --badge-slide-dur: 260ms;
+  --badge-pop-dur: 500ms;
+  --badge-pop-close-dur: 180ms;
+  --badge-fade-dur: 400ms;
+  --badge-fade-close-dur: 180ms;
+  --badge-blur: 2px;
+  --badge-offset-x: -8.2px;
+  --badge-offset-y: 12.4px;
+  --badge-slide-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --badge-pop-ease: cubic-bezier(0.34, 1.36, 0.64, 1);
+  --badge-close-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Text states swap */
+  --text-swap-dur: 200ms;
+  --text-swap-translate-y: 8px;
+  --text-swap-blur: 2px;
+  --text-swap-ease: ease-out;
+  /* Menu dropdown */
+  --dropdown-open-dur: 250ms;
+  --dropdown-close-dur: 150ms;
+  --dropdown-pre-scale: 0.97;
+  --dropdown-closing-scale: 0.99;
+  --dropdown-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Modal open / close */
+  --modal-open-dur: 250ms;
+  --modal-close-dur: 150ms;
+  --modal-scale: 0.96;
+  --modal-scale-close: 0.96;
+  --modal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Panel reveal */
+  --panel-open-dur: 400ms;
+  --panel-close-dur: 350ms;
+  --panel-translate-y: 100px;
+  --panel-blur: 2px;
+  --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Page side-by-side */
+  --page-slide-dur: 200ms;
+  --page-fade-dur: 200ms;
+  --page-slide-distance: 8px;
+  --page-blur: 3px;
+  --page-stagger: 0ms;
+  --page-exit-enabled: 1;
+  --page-slide-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --page-fade-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Icon swap */
+  --icon-swap-dur: 200ms;
+  --icon-swap-blur: 2px;
+  --icon-swap-start-scale: 0.25;
+  --icon-swap-ease: ease-in-out;
+  /* Success check */
+  --check-opacity-dur: 550ms;
+  --check-rotate-dur: 550ms;
+  --check-rotate-from: 80deg;
+  --check-bob-dur: 450ms;
+  --check-y-amount: 40px;
+  --check-blur-dur: 500ms;
+  --check-blur-from: 10px;
+  --check-path-dur: 550ms;
+  --check-path-delay: 80ms;
+  --check-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --check-ease-opacity: cubic-bezier(0.22, 1, 0.36, 1);
+  --check-ease-rotate: cubic-bezier(0.22, 1, 0.36, 1);
+  --check-ease-bob: cubic-bezier(0.34, 1.35, 0.64, 1);
+  --check-ease-path: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Avatar group hover */
+  --avatar-lift: -4px;
+  --avatar-dur: 320ms;
+  --avatar-scale: 1.05;
+  --avatar-falloff: 0.45;
+  --avatar-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
+  --avatar-ease-out: cubic-bezier(0.34, 3.85, 0.64, 1);
+  /* Error state shake */
+  --shake-distance: 6px;
+  --shake-overshoot: 4px;
+  --shake-dur-a: 80ms;
+  --shake-dur-b: 60ms;
+  --shake-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --revert-hold: 3000ms;
+  --revert-dur: 280ms;
 }
 
 @layer base {
@@ -149,11 +244,234 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+  }
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: var(--foreground);
+  color: var(--background);
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.t-text-swap {
+  display: inline-block;
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+  transition:
+    transform var(--text-swap-dur) var(--text-swap-ease),
+    filter    var(--text-swap-dur) var(--text-swap-ease),
+    opacity   var(--text-swap-dur) var(--text-swap-ease);
+  will-change: transform, filter, opacity;
+}
+.t-text-swap.is-exit {
+  transform: translateY(calc(var(--text-swap-translate-y) * -1));
+  filter: blur(var(--text-swap-blur));
+  opacity: 0;
+}
+.t-text-swap.is-enter-start {
+  transform: translateY(var(--text-swap-translate-y));
+  filter: blur(var(--text-swap-blur));
+  opacity: 0;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-text-swap { transition: none !important; }
+}
+
+.t-panel-slide {
+  transform: translateY(var(--panel-translate-y));
+  opacity: 0;
+  filter: blur(var(--panel-blur));
+  pointer-events: none;
+  transition:
+    transform var(--panel-close-dur) var(--panel-ease),
+    opacity   var(--panel-close-dur) var(--panel-ease),
+    filter    var(--panel-close-dur) var(--panel-ease);
+  will-change: transform, opacity, filter;
+}
+.t-panel-slide[data-open="true"] {
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+  transition:
+    transform var(--panel-open-dur) var(--panel-ease),
+    opacity   var(--panel-open-dur) var(--panel-ease),
+    filter    var(--panel-open-dur) var(--panel-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-panel-slide { transition: none !important; }
+}
+
+.t-icon-swap {
+  position: relative;
+  display: inline-grid;
+}
+.t-icon-swap .t-icon {
+  grid-area: 1 / 1;
+  transition:
+    opacity   var(--icon-swap-dur) var(--icon-swap-ease),
+    filter    var(--icon-swap-dur) var(--icon-swap-ease),
+    transform var(--icon-swap-dur) var(--icon-swap-ease);
+  will-change: opacity, filter, transform;
+}
+.t-icon-swap[data-state="a"] .t-icon[data-icon="a"],
+.t-icon-swap[data-state="b"] .t-icon[data-icon="b"] {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+.t-icon-swap[data-state="a"] .t-icon[data-icon="b"],
+.t-icon-swap[data-state="b"] .t-icon[data-icon="a"] {
+  opacity: 0;
+  filter: blur(var(--icon-swap-blur));
+  transform: scale(var(--icon-swap-start-scale));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-icon-swap .t-icon { transition: none !important; }
+}
+
+/* Wrapper drives the appear animation; it doesn't own any
+   sizing or color so you can drop in any icon. */
+.t-success-check {
+  display: inline-block;
+  transform-origin: center;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+/* overflow: visible keeps the stroke from clipping while it
+   draws; display: block kills the inline whitespace under SVGs. */
+.t-success-check svg { display: block; overflow: visible; }
+/* Stroke-draw setup. Replace 20 with the result of
+   path.getTotalLength() for your path; round caps mean any
+   sub-pixel overshoot is invisible. */
+.t-success-check svg path {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+}
+
+.t-success-check[data-state="in"] {
+  animation:
+    t-check-fade   var(--check-opacity-dur) var(--check-ease-opacity) forwards,
+    t-check-rotate var(--check-rotate-dur)  var(--check-ease-rotate)  forwards,
+    t-check-blur   var(--check-blur-dur)    var(--check-ease-out)     forwards,
+    t-check-bob    var(--check-bob-dur)     var(--check-ease-bob)     forwards;
+}
+.t-success-check[data-state="in"] svg path {
+  animation: t-check-draw var(--check-path-dur) var(--check-ease-path) var(--check-path-delay, 0ms) forwards;
+}
+
+@keyframes t-check-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes t-check-rotate {
+  from { transform: rotate(var(--check-rotate-from)); }
+  to   { transform: rotate(0deg); }
+}
+@keyframes t-check-blur {
+  from { filter: blur(var(--check-blur-from)); }
+  to   { filter: blur(0); }
+}
+@keyframes t-check-bob {
+  from { translate: 0 var(--check-y-amount); }
+  to   { translate: 0 0; }
+}
+@keyframes t-check-draw { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-success-check { animation: none !important; opacity: 1; }
+  .t-success-check svg path { animation: none !important; stroke-dashoffset: 0 !important; }
+}
+
+/* Border-color tween. Define your input's default / focused
+   / error border-color in your own component CSS — this rule
+   only owns the interpolation. Use a constant border-width
+   across states so the tween never shifts inner content. */
+.t-input {
+  transition: border-color 150ms ease-out;
+  will-change: transform;
+}
+.t-input.is-error {
+  /* Error border auto-reverts on the hold timer, so the
+     fade-out uses the slower revert duration (matches the
+     message fade). */
+  transition: border-color var(--revert-dur, 280ms) ease-out;
+}
+
+/* Error message reveal. Visibility is delayed by --revert-dur
+   on hide so the message stays painted for the full opacity
+   fade-out. Entering .is-error drops the delay to 0 so the
+   message becomes visible immediately. */
+.t-error-msg {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity    var(--revert-dur, 280ms) ease-out,
+    visibility 0s linear var(--revert-dur, 280ms);
+}
+.t-input-wrap.is-error .t-error-msg {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity    var(--revert-dur, 280ms) ease-out,
+    visibility 0s linear 0s;
+}
+
+/* Multi-segment keyframe with per-stop easing so each leg
+   of the shake follows its own cubic-bezier independently.
+   %-stops are cumulative durations as a fraction of the
+   total (80, 60, 80, 60 = 280ms): 28.57%, 57.14%, 78.57%,
+   100%. Recompute if any segment duration changes. */
+.t-input.is-shaking {
+  animation: t-input-shake calc(
+      var(--shake-dur-a) * 2 + var(--shake-dur-b) * 2
+    ) linear;
+}
+@keyframes t-input-shake {
+  0%      { transform: translateX(0);                                 animation-timing-function: var(--shake-ease); }
+  28.57%  { transform: translateX(var(--shake-distance));             animation-timing-function: var(--shake-ease); }
+  57.14%  { transform: translateX(calc(var(--shake-distance) * -1)); animation-timing-function: var(--shake-ease); }
+  78.57%  { transform: translateX(var(--shake-overshoot));            animation-timing-function: var(--shake-ease); }
+  100%    { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-input { animation: none !important; transform: none !important; }
+}
+
+.t-input.is-error {
+  border-color: var(--destructive);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 

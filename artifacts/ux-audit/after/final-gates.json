@@ -1,0 +1,45 @@
+{
+  "relatedRoute": {
+    "url": "http://127.0.0.1:5173/projects/nexus-financial",
+    "heading": "NEXUS FINANCIAL ANALYTICS"
+  },
+  "validation": {
+    "inlineErrors": 3,
+    "focusedField": "contact-name"
+  },
+  "contact": {
+    "heading": "MESSAGE READY",
+    "emailDraft": "mailto:arshadwebdeveloper10@gmail.com?subject=Portfolio%20inquiry%20from%20Jordan%20O'Connor&body=I%20would%20like%20to%20discuss%20a%20full-stack%20role.%0A%0AFrom%3A%20Jordan%20O'Connor%20(jordan%40example.com)"
+  },
+  "mobileMenu": {
+    "expandedBeforeEscape": "true",
+    "expandedAfterEscape": "false"
+  },
+  "motion": {
+    "requested": true,
+    "hero": "1e-05s",
+    "nav": "1e-05s"
+  },
+  "consoleIssues": [],
+  "networkIssues": [],
+  "axe": [
+    {
+      "route": "/",
+      "violations": []
+    },
+    {
+      "route": "/projects/devflow",
+      "violations": []
+    },
+    {
+      "route": "/does-not-exist",
+      "violations": []
+    }
+  ],
+  "summary": {
+    "consoleErrorsOrWarnings": 0,
+    "network4xxOr5xx": 0,
+    "axeCritical": 0,
+    "axeSerious": 0
+  }
+}

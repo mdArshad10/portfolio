@@ -1,38 +1,97 @@
-import { useState } from "react"
-import { MapPin, Send, ArrowRight } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { MapPin, Send, ArrowRight, MailCheck, Code2, BriefcaseBusiness } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
-import { GitHubDark, LinkedIn } from "developer-icons"
-import axios from 'axios'
 
 import { personalInfo } from "@/data/portfolio"
 
 export function ContactSection() {
   const { ref, inView } = useInView({ threshold: 0.1 })
   const [form, setForm] = useState({ name: "", email: "", message: "" })
-  const [sent, setSent] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<"idle" | "preparing" | "ready">("idle")
+  const successIconRef = useRef<HTMLDivElement>(null)
+  const validationTimers = useRef(new Map<HTMLElement, number>())
+
+  const isSubmitting = status === "preparing"
+  const emailDraft = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+    `Portfolio inquiry from ${form.name}`,
+  )}&body=${encodeURIComponent(`${form.message}\n\nFrom: ${form.name} (${form.email})`)}`
 
   const handleSubmit = async (e: React.FormEvent) => {
-    try {
-      e.preventDefault()
-      setIsSubmitting(true)
-      // Attempt to send
-      await axios.post("/api/send-email", {
-        email: form.email,
-        message: form.message,
-        name: form.name,
-      })
-      // If it somehow succeeds
-      setSent(true)
-      setForm({ name: "", email: "", message: "" })
-    } catch (error:unknown) {
-      // Mock success since there is no real backend API
-      console.log("Mocking email success (API not found):", form)
-      setSent(true)
-      setForm({ name: "", email: "", message: "" })
-    } finally {
-      setIsSubmitting(false)
+    e.preventDefault()
+    setStatus("preparing")
+    await new Promise((resolve) => window.setTimeout(resolve, 350))
+    setStatus("ready")
+  }
+
+  useEffect(() => {
+    const check = successIconRef.current
+    if (status !== "ready" || !check) return
+
+    check.querySelectorAll<SVGPathElement>("svg path").forEach((path) => {
+      const length = Math.ceil(path.getTotalLength()) + 1
+      path.style.strokeDasharray = String(length)
+      path.style.strokeDashoffset = String(length)
+    })
+    check.setAttribute("data-state", "out")
+    void check.offsetWidth
+    check.setAttribute("data-state", "in")
+  }, [status])
+
+  useEffect(() => {
+    const timers = validationTimers.current
+    return () => {
+      timers.forEach((timer) => window.clearTimeout(timer))
+      timers.clear()
     }
+  }, [])
+
+  const clearValidation = (target: HTMLElement) => {
+    const wrap = target.closest<HTMLElement>(".t-input-wrap")
+    const input = target.closest<HTMLElement>(".t-input")
+    if (!wrap || !input) return
+
+    const timer = validationTimers.current.get(wrap)
+    if (timer) window.clearTimeout(timer)
+    validationTimers.current.delete(wrap)
+    wrap.classList.remove("is-error")
+    input.classList.remove("is-error", "is-shaking")
+  }
+
+  const handleInvalid = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const formElement = event.currentTarget
+    const target = event.target as HTMLInputElement | HTMLTextAreaElement
+    const wrap = target.closest<HTMLElement>(".t-input-wrap")
+    const input = target.closest<HTMLElement>(".t-input")
+    if (!wrap || !input) return
+
+    wrap.classList.add("is-error")
+    input.classList.add("is-error")
+    input.classList.remove("is-shaking")
+    void input.offsetWidth
+    input.classList.add("is-shaking")
+
+    const styles = getComputedStyle(document.documentElement)
+    const milliseconds = (name: string, fallback: number) => {
+      const value = parseFloat(styles.getPropertyValue(name))
+      return Number.isFinite(value) ? value : fallback
+    }
+    const shakeDuration =
+      milliseconds("--shake-dur-a", 80) * 2 +
+      milliseconds("--shake-dur-b", 60) * 2
+    const holdDuration = milliseconds("--revert-hold", 3000)
+
+    const existingTimer = validationTimers.current.get(wrap)
+    if (existingTimer) window.clearTimeout(existingTimer)
+    const timer = window.setTimeout(() => {
+      validationTimers.current.delete(wrap)
+      wrap.classList.remove("is-error")
+      input.classList.remove("is-error", "is-shaking")
+    }, shakeDuration + holdDuration)
+    validationTimers.current.set(wrap, timer)
+    window.requestAnimationFrame(() => {
+      formElement.querySelector<HTMLElement>(".t-input-wrap.is-error .t-input")?.focus()
+    })
   }
 
   return (
@@ -62,7 +121,7 @@ export function ContactSection() {
               className="text-foreground font-black uppercase tracking-tighter leading-none mb-8"
               style={{ fontSize: "clamp(3rem, 6vw, 6rem)" }}
             >
-              Initiate<br/>Sequence
+              Start a<br/>conversation
             </h2>
             <p className="text-xl text-muted-foreground font-light mb-16 max-w-md">
               {personalInfo.availability}
@@ -72,7 +131,7 @@ export function ContactSection() {
             <div className="flex flex-col border-t-2 border-l-2 border-r-2 border-foreground mb-16">
               <div className="flex flex-col sm:flex-row border-b-2 border-foreground">
                 <div className="bg-foreground text-background font-mono text-xs font-bold uppercase p-4 sm:w-1/3 flex items-center">
-                  Direct Line
+                  Email
                 </div>
                 <a
                   href={`mailto:${personalInfo.email}`}
@@ -83,7 +142,7 @@ export function ContactSection() {
               </div>
               <div className="flex flex-col sm:flex-row border-b-2 border-foreground">
                 <div className="bg-foreground text-background font-mono text-xs font-bold uppercase p-4 sm:w-1/3 flex items-center">
-                  Base
+                  Location
                 </div>
                 <div className="font-mono text-sm sm:text-base font-bold p-4 sm:w-2/3 flex items-center gap-2 truncate">
                   <MapPin className="h-4 w-4 shrink-0" />
@@ -95,10 +154,10 @@ export function ContactSection() {
             {/* Social links */}
             <div className="flex flex-wrap gap-4">
               <SocialLink href={personalInfo.github} label="GITHUB">
-                <GitHubDark className="h-5 w-5" />
+                <Code2 className="h-5 w-5" />
               </SocialLink>
               <SocialLink href={personalInfo.linkedin} label="LINKEDIN">
-                <LinkedIn className="h-5 w-5" />
+                <BriefcaseBusiness className="h-5 w-5" />
               </SocialLink>
             </div>
           </div>
@@ -109,63 +168,88 @@ export function ContactSection() {
               inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             }`}
           >
-            {sent ? (
-              <div className="flex h-full flex-col items-start justify-center gap-8 border-2 border-primary p-12 bg-primary/5">
-                <div className="bg-primary text-primary-foreground p-4 border-2 border-primary">
-                  <Send className="h-8 w-8" />
+            {status === "ready" ? (
+              <div className="flex h-full flex-col items-start justify-center gap-8 border-2 border-primary bg-primary/5 p-8 sm:p-12" role="status" aria-live="polite">
+                <div ref={successIconRef} className="t-success-check border-2 border-primary bg-primary p-4 text-primary-foreground" data-state="out" aria-hidden="true">
+                  <MailCheck className="h-8 w-8" />
                 </div>
                 <div>
-                  <h3 className="text-4xl font-black uppercase tracking-tighter mb-2">Transmission<br/>Successful</h3>
-                  <p className="font-mono text-sm text-muted-foreground">
-                    Acknowledgment sent. Awaiting response sequence within 24h.
+                  <h3 className="mb-3 text-3xl font-black tracking-tighter uppercase sm:text-4xl">Message ready</h3>
+                  <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+                    Nothing has been sent yet. Open the prepared draft in your email app, review it, then press send.
                   </p>
                 </div>
-                <button
-                  onClick={() => setSent(false)}
-                  className="font-mono font-bold uppercase text-sm border-b-2 border-foreground pb-1 hover:text-primary hover:border-primary transition-colors flex items-center gap-2 group"
-                >
-                  New Message
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
+                <div className="flex flex-wrap items-center gap-6">
+                  <a
+                    href={emailDraft}
+                    className="group flex min-h-12 items-center gap-3 bg-primary px-6 py-3 font-mono text-sm font-bold tracking-wide text-primary-foreground uppercase"
+                  >
+                    Open email draft
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                  <button
+                    onClick={() => {
+                      setStatus("idle")
+                      setForm({ name: "", email: "", message: "" })
+                    }}
+                    className="font-mono text-sm font-bold uppercase underline decoration-2 underline-offset-8 hover:text-primary"
+                  >
+                    Start over
+                  </button>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+              <form onSubmit={handleSubmit} onInvalid={handleInvalid} className="flex flex-col gap-8" aria-busy={isSubmitting}>
                 <div className="flex flex-col gap-8 sm:flex-row">
                   <FormField
                     id="contact-name"
-                    label="IDENTIFIER"
+                    label="Your name"
                     type="text"
+                    autoComplete="name"
                     value={form.name}
                     onChange={(v) => setForm({ ...form, name: v })}
+                    onInput={clearValidation}
                     placeholder="Your name"
+                    errorMessage="Enter your name."
                     required
                   />
                   <FormField
                     id="contact-email-input"
-                    label="RETURN_ADDRESS"
+                    label="Email address"
                     type="email"
+                    autoComplete="email"
                     value={form.email}
                     onChange={(v) => setForm({ ...form, email: v })}
+                    onInput={clearValidation}
                     placeholder="you@example.com"
+                    errorMessage="Enter a valid email address."
                     required
                   />
                 </div>
-                <div className="flex flex-col gap-3 group">
+                <div className="t-input-wrap flex flex-col gap-3 group">
                   <label
                     htmlFor="contact-message"
                     className="font-mono text-xs font-bold uppercase tracking-widest text-foreground group-focus-within:text-primary transition-colors"
                   >
-                    PAYLOAD
+                    Project or role
                   </label>
                   <textarea
                     id="contact-message"
+                    name="message"
                     rows={6}
                     required
+                    aria-describedby="contact-message-error"
                     value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Describe your parameters..."
-                    className="w-full resize-none bg-background border-2 border-foreground/30 px-5 py-4 font-mono text-sm text-foreground transition-colors duration-200 outline-none placeholder:text-muted-foreground focus:border-primary focus:bg-primary/5"
+                    onChange={(e) => {
+                      clearValidation(e.currentTarget)
+                      setForm({ ...form, message: e.target.value })
+                    }}
+                    placeholder="Tell me what you're building, hiring for, or hoping to discuss."
+                    className="t-input w-full resize-none bg-background border-2 border-foreground/30 px-5 py-4 font-mono text-sm text-foreground transition-colors duration-200 outline-none placeholder:text-muted-foreground focus:border-primary focus:bg-primary/5"
                   />
+                  <p id="contact-message-error" className="t-error-msg -mt-1 font-mono text-xs font-bold text-destructive" aria-live="polite">
+                    Add a short note about the role or project.
+                  </p>
                 </div>
                 <button
                   type="submit"
@@ -174,7 +258,7 @@ export function ContactSection() {
                   className="group relative flex items-center justify-between border-2 border-foreground bg-foreground px-8 py-5 text-background transition-all duration-300 hover:bg-primary hover:border-primary hover:text-primary-foreground disabled:opacity-50 overflow-hidden"
                 >
                   <span className="font-mono text-lg font-black uppercase tracking-widest relative z-10">
-                    {isSubmitting ? "Transmitting..." : "Execute"}
+                    <TransitioningText value={isSubmitting ? "Preparing draft..." : "Prepare email"} />
                   </span>
                   <Send className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-2 group-hover:-translate-y-2 relative z-10" />
                 </button>
@@ -191,34 +275,84 @@ function FormField({
   id,
   label,
   type,
+  autoComplete,
   value,
   onChange,
+  onInput,
   placeholder,
+  errorMessage,
   required,
 }: {
   id: string
   label: string
   type: string
+  autoComplete?: string
   value: string
   onChange: (v: string) => void
+  onInput: (target: HTMLElement) => void
   placeholder: string
+  errorMessage: string
   required?: boolean
 }) {
   return (
-    <div className="flex w-full flex-col gap-3 group">
+    <div className="t-input-wrap flex w-full flex-col gap-3 group">
       <label htmlFor={id} className="font-mono text-xs font-bold uppercase tracking-widest text-foreground group-focus-within:text-primary transition-colors">
         {label}
       </label>
       <input
         id={id}
         type={type}
+        name={id === "contact-name" ? "name" : "email"}
+        autoComplete={autoComplete}
         required={required}
+        aria-describedby={`${id}-error`}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          onInput(e.currentTarget)
+          onChange(e.target.value)
+        }}
         placeholder={placeholder}
-        className="w-full bg-background border-2 border-foreground/30 px-5 py-4 font-mono text-sm text-foreground transition-colors duration-200 outline-none placeholder:text-muted-foreground focus:border-primary focus:bg-primary/5"
+        className="t-input w-full bg-background border-2 border-foreground/30 px-5 py-4 font-mono text-sm text-foreground transition-colors duration-200 outline-none placeholder:text-muted-foreground focus:border-primary focus:bg-primary/5"
       />
+      <p id={`${id}-error`} className="t-error-msg -mt-1 font-mono text-xs font-bold text-destructive" aria-live="polite">
+        {errorMessage}
+      </p>
     </div>
+  )
+}
+
+function TransitioningText({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const [displayed, setDisplayed] = useState(value)
+  const [phase, setPhase] = useState("")
+
+  useEffect(() => {
+    if (value === displayed) return
+
+    const duration =
+      parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue("--text-swap-dur"),
+      ) || 200
+    const frame = window.requestAnimationFrame(() => setPhase("is-exit"))
+    const timer = window.setTimeout(() => {
+      setDisplayed(value)
+      setPhase("is-enter-start")
+      window.requestAnimationFrame(() => {
+        if (ref.current) void ref.current.offsetHeight
+        setPhase("")
+      })
+    }, duration)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.clearTimeout(timer)
+    }
+  }, [value, displayed])
+
+  return (
+    <span ref={ref} className={`t-text-swap ${phase}`}>
+      {displayed}
+    </span>
   )
 }
 

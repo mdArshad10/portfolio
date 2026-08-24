@@ -1,0 +1,1061 @@
+{
+  "label": "after",
+  "baseUrl": "http://127.0.0.1:5173",
+  "persona": "time-pressed recruiter or prospective client, moderately technical, evaluating in a few minutes on laptop and phone",
+  "generatedAt": "2026-08-24T06:03:25.100Z",
+  "manifest": [
+    {
+      "at": "2026-08-24T06:02:51.303Z",
+      "type": "CAPABILITY",
+      "route": "/",
+      "action": "Loaded the public portfolio and queried the primary heading",
+      "selector": "h1",
+      "result": "FULL-STACK DEVELOPER WHO SHIPS CLEAN, USER-FOCUSED WEB APPS."
+    },
+    {
+      "at": "2026-08-24T06:02:56.197Z",
+      "type": "SCREENSHOT",
+      "route": "/",
+      "action": "Captured the desktop baseline",
+      "selector": "body",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/home-desktop.png"
+    },
+    {
+      "at": "2026-08-24T06:02:57.868Z",
+      "type": "NAVIGATE",
+      "route": "/#projects",
+      "action": "Clicked Projects in the primary navigation",
+      "selector": "a[href=\"/#projects\"]",
+      "result": {
+        "url": "http://127.0.0.1:5173/#projects",
+        "scrollY": 973
+      }
+    },
+    {
+      "at": "2026-08-24T06:02:58.563Z",
+      "type": "SCREENSHOT",
+      "route": "/#projects",
+      "action": "Captured the project archive before drill-down",
+      "selector": "#projects",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/projects-before-open.png"
+    },
+    {
+      "at": "2026-08-24T06:02:59.256Z",
+      "type": "OPEN",
+      "route": "/projects/devflow",
+      "action": "Opened the DevFlow case study",
+      "selector": "#project-devflow-detail",
+      "result": {
+        "url": "http://127.0.0.1:5173/projects/devflow",
+        "heading": "FULL-STACK DEVELOPER WHO SHIPS CLEAN, USER-FOCUSED WEB APPS."
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:00.030Z",
+      "type": "SCREENSHOT",
+      "route": "/projects/devflow",
+      "action": "Captured the opened project detail",
+      "selector": "main, section",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/project-detail-after-open.png"
+    },
+    {
+      "at": "2026-08-24T06:03:01.184Z",
+      "type": "ROUND_TRIP",
+      "route": "/projects/nexus-financial",
+      "action": "Opened the first related project",
+      "selector": "a[href=\"/projects/nexus-financial\"]",
+      "result": {
+        "url": "http://127.0.0.1:5173/projects/nexus-financial",
+        "body": "Skip to content\nSYS\nARSHAD\nPROJECTS\nEXPERTISE\nCONTACT\nBACK TO ARCHIVE\nSYS.02 //\nFULL-STACK\nREACT\nNODE.JS\nDEVFLOW\n\nDeveloper task manager with GitHub sync\n\nYEAR\n2024\nROLE\nSolo devel"
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:01.889Z",
+      "type": "ASSERT",
+      "route": "/projects/nexus-financial",
+      "action": "Verified the related project destination",
+      "selector": "h1, main",
+      "result": {
+        "notFound": false,
+        "heading": "NEXUS FINANCIAL ANALYTICS"
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/related-project-result.png"
+    },
+    {
+      "at": "2026-08-24T06:03:04.857Z",
+      "type": "ERROR",
+      "route": "/#contact",
+      "action": "Submitted the empty form and observed inline validation",
+      "selector": "#contact-submit",
+      "result": {
+        "errorsVisible": 3,
+        "focusedField": "contact-name"
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/contact-validation-error.png"
+    },
+    {
+      "at": "2026-08-24T06:03:05.546Z",
+      "type": "TYPE",
+      "route": "/#contact",
+      "action": "Completed the contact form with realistic recruiter data",
+      "selector": "#contact-name, #contact-email-input, #contact-message",
+      "result": {
+        "name": "Jordan O'Connor",
+        "email": "jordan.recruiter@example.com",
+        "messageLength": 77
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:06.244Z",
+      "type": "SCREENSHOT",
+      "route": "/#contact",
+      "action": "Captured the completed form before submission",
+      "selector": "#contact form",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/contact-before-submit.png"
+    },
+    {
+      "at": "2026-08-24T06:03:08.180Z",
+      "type": "SUBMIT",
+      "route": "/#contact",
+      "action": "Submitted the contact form",
+      "selector": "#contact-submit",
+      "result": {
+        "successHeading": 1,
+        "inputRemoved": true,
+        "failedRequests": []
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/contact-after-submit.png"
+    },
+    {
+      "at": "2026-08-24T06:03:08.832Z",
+      "type": "CONSOLE",
+      "route": "/#contact",
+      "action": "Read console after submission",
+      "selector": "console",
+      "result": [
+        {
+          "at": "2026-08-24T06:02:50.362Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "at": "2026-08-24T06:02:50.536Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "at": "2026-08-24T06:02:50.660Z",
+          "surface": "desktop",
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "at": "2026-08-24T06:03:02.589Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "at": "2026-08-24T06:03:02.592Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "at": "2026-08-24T06:03:02.593Z",
+          "surface": "desktop",
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        }
+      ]
+    },
+    {
+      "at": "2026-08-24T06:03:09.542Z",
+      "type": "ASSERT",
+      "route": "/#contact",
+      "action": "Returned to a fresh contact form",
+      "selector": "button[name=\"New Message\"]",
+      "result": {
+        "formRestored": true
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:10.925Z",
+      "type": "STATE_CHANGE",
+      "route": "/#contact",
+      "action": "Toggled the site theme",
+      "selector": "button[aria-label=\"Toggle theme\"]",
+      "result": {
+        "before": "dark",
+        "after": "light"
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:12.237Z",
+      "type": "OPEN",
+      "route": "/does-not-exist",
+      "action": "Opened an invalid route",
+      "selector": "URL",
+      "result": {
+        "heading": "This page doesn't exist."
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/not-found.png"
+    },
+    {
+      "at": "2026-08-24T06:03:14.094Z",
+      "type": "ASSERT",
+      "route": "/",
+      "action": "Verified hero calls to action point to working destinations",
+      "selector": "#home a",
+      "result": {
+        "projectsHref": "#projects",
+        "emailHref": "mailto:arshadwebdeveloper10@gmail.co",
+        "brokenResumeLink": 0
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:19.325Z",
+      "type": "SCREENSHOT",
+      "route": "/",
+      "action": "Captured the mobile baseline with reduced motion requested",
+      "selector": "body",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/home-mobile.png"
+    },
+    {
+      "at": "2026-08-24T06:03:20.064Z",
+      "type": "OPEN",
+      "route": "/",
+      "action": "Opened the mobile navigation",
+      "selector": "#mobile-menu-toggle",
+      "result": {
+        "expanded": "true"
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/mobile-menu-open.png"
+    },
+    {
+      "at": "2026-08-24T06:03:21.761Z",
+      "type": "TYPE",
+      "route": "/#contact",
+      "action": "Entered real-flavour mobile form data",
+      "selector": "#contact form",
+      "result": {
+        "name": "Zoë O'Connor",
+        "message": "Hello مرحبا こんにちは <script>alert('audit')</script>"
+      }
+    },
+    {
+      "at": "2026-08-24T06:03:22.447Z",
+      "type": "SCREENSHOT",
+      "route": "/#contact",
+      "action": "Captured mobile contact before submission",
+      "selector": "#contact form",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/mobile-contact-before-submit.png"
+    },
+    {
+      "at": "2026-08-24T06:03:24.388Z",
+      "type": "SUBMIT",
+      "route": "/#contact",
+      "action": "Submitted real-flavour data on mobile",
+      "selector": "#contact-submit",
+      "result": {
+        "successHeading": 1,
+        "console": [
+          {
+            "at": "2026-08-24T06:03:16.274Z",
+            "surface": "mobile",
+            "type": "debug",
+            "text": "[vite] connecting..."
+          },
+          {
+            "at": "2026-08-24T06:03:16.284Z",
+            "surface": "mobile",
+            "type": "debug",
+            "text": "[vite] connected."
+          },
+          {
+            "at": "2026-08-24T06:03:16.327Z",
+            "surface": "mobile",
+            "type": "info",
+            "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+          }
+        ]
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/mobile-contact-after-submit.png"
+    }
+  ],
+  "screenshots": [
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/home-desktop.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/projects-before-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/project-detail-after-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/related-project-result.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/contact-validation-error.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/contact-before-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/contact-after-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/not-found.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/home-mobile.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/mobile-menu-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/mobile-contact-before-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/after/mobile-contact-after-submit.png"
+  ],
+  "consoleEntries": [
+    {
+      "at": "2026-08-24T06:02:50.362Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:02:50.536Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:02:50.660Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:02.589Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:02.592Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:02.593Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:11.609Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:11.614Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:11.620Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:13.179Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:13.182Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:13.186Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:14.819Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:14.820Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:14.820Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:14.885Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:14.889Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:14.890Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:14.952Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:14.954Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:14.956Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.015Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.018Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.019Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.077Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.078Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.079Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.143Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.146Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.149Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.212Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.214Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.215Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.276Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.278Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.279Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.347Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.348Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.349Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.406Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.407Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.409Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.469Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.470Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.472Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.532Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.535Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.536Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:15.597Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:15.600Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:15.603Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:03:16.274Z",
+      "surface": "mobile",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:03:16.284Z",
+      "surface": "mobile",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:03:16.327Z",
+      "surface": "mobile",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    }
+  ],
+  "networkEntries": [],
+  "accessibility": [
+    {
+      "route": "/projects/devflow",
+      "violations": []
+    },
+    {
+      "route": "/does-not-exist",
+      "violations": []
+    },
+    {
+      "route": "/",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 2,
+          "targets": [
+            [
+              ".text-primary-foreground > .tracking-wider.text-sm.font-bold"
+            ],
+            [
+              ".hover\\:bg-muted > .tracking-wider.text-sm.font-bold"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 1920,
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 1596.686279296875,
+            "y": -393.33966064453125,
+            "width": 1413.62744140625,
+            "height": 2018.27294921875,
+            "top": -393.33966064453125,
+            "right": 3010.313720703125,
+            "bottom": 1624.9332885742188,
+            "left": 1596.686279296875
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1920,
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 1123.93896484375,
+            "y": -335.8951110839844,
+            "width": 1207.1220703125,
+            "height": 1723.352783203125,
+            "top": -335.8951110839844,
+            "right": 2331.06103515625,
+            "bottom": 1387.4576721191406,
+            "left": 1123.93896484375
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1440,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 981.5174560546875,
+            "y": -308.30841064453125,
+            "width": 1107.9649658203125,
+            "height": 1581.74169921875,
+            "top": -308.30841064453125,
+            "right": 2089.482421875,
+            "bottom": 1273.4332885742188,
+            "left": 981.5174560546875
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1280,
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 712.2420654296875,
+            "y": -287.2044677734375,
+            "width": 1032.109619140625,
+            "height": 1473.408935546875,
+            "top": -287.2044677734375,
+            "right": 1744.3516845703125,
+            "bottom": 1186.2044677734375,
+            "left": 712.2420654296875
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1024,
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 385.3670654296875,
+            "y": -298.142578125,
+            "width": 1071.453369140625,
+            "height": 1529.59765625,
+            "top": -298.142578125,
+            "right": 1456.8204345703125,
+            "bottom": 1231.455078125,
+            "left": 385.3670654296875
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "lg:col-span-3 flex flex-col justify-end lg:pb-4 transition-all delay-300 duration-1000 ease-out translate-x-8 opacity-0",
+          "text": "I build responsive interfaces, dependable APIs, and production-ready web product",
+          "rect": {
+            "x": 56,
+            "y": 587.546875,
+            "width": 720,
+            "height": 265.75,
+            "top": 587.546875,
+            "right": 776,
+            "bottom": 853.296875,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex flex-col gap-4",
+          "text": "View ProjectsEmail Arshad",
+          "rect": {
+            "x": 56,
+            "y": 715.296875,
+            "width": 720,
+            "height": 138,
+            "top": 715.296875,
+            "right": 776,
+            "bottom": 853.296875,
+            "left": 56
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group relative flex w-full items-center justify-between bg-primary px-6 py-5 text-primary-foreground transition-all hover:bg-primary/90",
+          "text": "View Projects",
+          "rect": {
+            "x": 56,
+            "y": 715.296875,
+            "width": 720,
+            "height": 60,
+            "top": 715.296875,
+            "right": 776,
+            "bottom": 775.296875,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3",
+          "text": "",
+          "rect": {
+            "x": 64,
+            "y": 723.296875,
+            "width": 720,
+            "height": 60,
+            "top": 723.296875,
+            "right": 784,
+            "bottom": 783.296875,
+            "left": 64
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted",
+          "text": "Email Arshad",
+          "rect": {
+            "x": 56,
+            "y": 791.296875,
+            "width": 720,
+            "height": 62,
+            "top": 791.296875,
+            "right": 776,
+            "bottom": 853.296875,
+            "left": 56
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 768,
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "viewportWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": -23.034679412841797,
+            "y": -262.9888000488281,
+            "width": 945.0693359375,
+            "height": 1349.1025390625,
+            "top": -262.9888000488281,
+            "right": 922.0346565246582,
+            "bottom": 1086.1137390136719,
+            "left": -23.034679412841797
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "lg:col-span-3 flex flex-col justify-end lg:pb-4 transition-all delay-300 duration-1000 ease-out translate-x-8 opacity-0",
+          "text": "I build responsive interfaces, dependable APIs, and production-ready web product",
+          "rect": {
+            "x": 56,
+            "y": 477.125,
+            "width": 327,
+            "height": 282,
+            "top": 477.125,
+            "right": 383,
+            "bottom": 759.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "p",
+          "id": "",
+          "className": "mb-10 max-w-md border-l border-primary pl-5 text-base leading-relaxed text-muted-foreground sm:text-lg lg:mb-12 lg:text-xl",
+          "text": "I build responsive interfaces, dependable APIs, and production-ready web product",
+          "rect": {
+            "x": 56,
+            "y": 477.125,
+            "width": 327,
+            "height": 104,
+            "top": 477.125,
+            "right": 383,
+            "bottom": 581.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex flex-col gap-4",
+          "text": "View ProjectsEmail Arshad",
+          "rect": {
+            "x": 56,
+            "y": 621.125,
+            "width": 327,
+            "height": 138,
+            "top": 621.125,
+            "right": 383,
+            "bottom": 759.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group relative flex w-full items-center justify-between bg-primary px-6 py-5 text-primary-foreground transition-all hover:bg-primary/90",
+          "text": "View Projects",
+          "rect": {
+            "x": 56,
+            "y": 621.125,
+            "width": 327,
+            "height": 60,
+            "top": 621.125,
+            "right": 383,
+            "bottom": 681.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3",
+          "text": "",
+          "rect": {
+            "x": 64,
+            "y": 629.125,
+            "width": 327,
+            "height": 60,
+            "top": 629.125,
+            "right": 391,
+            "bottom": 689.125,
+            "left": 64
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted",
+          "text": "Email Arshad",
+          "rect": {
+            "x": 56,
+            "y": 697.125,
+            "width": 327,
+            "height": 62,
+            "top": 697.125,
+            "right": 383,
+            "bottom": 759.125,
+            "left": 56
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 375,
+      "viewportWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "offenders": []
+    }
+  ],
+  "performance": {
+    "lcp": 64,
+    "cls": 0,
+    "inp": 0
+  },
+  "reducedMotion": {
+    "requested": true,
+    "heroTransitionDuration": "1e-05s",
+    "navTransitionDuration": "1e-05s"
+  },
+  "summary": {
+    "manifestEntries": 22,
+    "screenshots": 12,
+    "consoleWarnings": 0,
+    "consoleErrors": 0,
+    "network5xx": 0,
+    "network4xx": 0,
+    "axeCritical": 0,
+    "axeSerious": 1,
+    "layoutCollapses": 0
+  }
+}
