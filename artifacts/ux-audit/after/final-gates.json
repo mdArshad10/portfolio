@@ -1,14 +1,14 @@
 {
   "relatedRoute": {
-    "url": "http://127.0.0.1:5173/projects/nexus-financial",
-    "heading": "NEXUS FINANCIAL ANALYTICS"
+    "url": "http://127.0.0.1:5175/projects/nexus-financial",
+    "heading": "Nexus Financial Analytics"
   },
   "validation": {
     "inlineErrors": 3,
     "focusedField": "contact-name"
   },
   "contact": {
-    "heading": "MESSAGE READY",
+    "heading": "Your email draft is ready.",
     "emailDraft": "mailto:arshadwebdeveloper10@gmail.com?subject=Portfolio%20inquiry%20from%20Jordan%20O'Connor&body=I%20would%20like%20to%20discuss%20a%20full-stack%20role.%0A%0AFrom%3A%20Jordan%20O'Connor%20(jordan%40example.com)"
   },
   "mobileMenu": {

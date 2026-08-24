@@ -1,0 +1,824 @@
+{
+  "label": "redesign",
+  "baseUrl": "http://127.0.0.1:5175",
+  "persona": "time-pressed recruiter or prospective client, moderately technical, evaluating in a few minutes on laptop and phone",
+  "generatedAt": "2026-08-24T06:58:52.006Z",
+  "manifest": [
+    {
+      "at": "2026-08-24T06:58:15.616Z",
+      "type": "CAPABILITY",
+      "route": "/",
+      "action": "Loaded the public portfolio and queried the primary heading",
+      "selector": "h1",
+      "result": "I build useful software, end to end."
+    },
+    {
+      "at": "2026-08-24T06:58:16.369Z",
+      "type": "KEYBOARD",
+      "route": "/",
+      "action": "Reached the skip link as the first keyboard stop",
+      "selector": ".skip-link",
+      "result": {
+        "focusedText": "Skip to content"
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:21.134Z",
+      "type": "SCREENSHOT",
+      "route": "/",
+      "action": "Captured the desktop baseline",
+      "selector": "body",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/home-desktop.png"
+    },
+    {
+      "at": "2026-08-24T06:58:22.750Z",
+      "type": "NAVIGATE",
+      "route": "/#projects",
+      "action": "Clicked Projects in the primary navigation",
+      "selector": "a[href=\"/#projects\"]",
+      "result": {
+        "url": "http://127.0.0.1:5175/#projects",
+        "scrollY": 782
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:23.464Z",
+      "type": "SCREENSHOT",
+      "route": "/#projects",
+      "action": "Captured the project archive before drill-down",
+      "selector": "#projects",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/projects-before-open.png"
+    },
+    {
+      "at": "2026-08-24T06:58:24.188Z",
+      "type": "OPEN",
+      "route": "/projects/devflow",
+      "action": "Opened the DevFlow case study",
+      "selector": "#project-devflow-detail",
+      "result": {
+        "url": "http://127.0.0.1:5175/projects/devflow",
+        "heading": "DevFlow"
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:24.954Z",
+      "type": "SCREENSHOT",
+      "route": "/projects/devflow",
+      "action": "Captured the opened project detail",
+      "selector": "main, section",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/project-detail-after-open.png"
+    },
+    {
+      "at": "2026-08-24T06:58:26.206Z",
+      "type": "ROUND_TRIP",
+      "route": "/projects/nexus-financial",
+      "action": "Opened the first related project",
+      "selector": "a[href=\"/projects/nexus-financial\"]",
+      "result": {
+        "url": "http://127.0.0.1:5175/projects/nexus-financial",
+        "body": "Skip to content\nMA\nMd. Arshad\nWork\nCapabilities\nContact\nBack to selected work\nData Viz\nReact\nWebSockets\nNexus Financial Analytics\n\nA high-performance trading dashboard processing r"
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:26.906Z",
+      "type": "ASSERT",
+      "route": "/projects/nexus-financial",
+      "action": "Verified the related project destination",
+      "selector": "h1, main",
+      "result": {
+        "notFound": false,
+        "heading": "Nexus Financial Analytics"
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/related-project-result.png"
+    },
+    {
+      "at": "2026-08-24T06:58:29.780Z",
+      "type": "ERROR",
+      "route": "/#contact",
+      "action": "Submitted the empty form and observed inline validation",
+      "selector": "#contact-submit",
+      "result": {
+        "errorsVisible": 3,
+        "focusedField": "contact-submit"
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/contact-validation-error.png"
+    },
+    {
+      "at": "2026-08-24T06:58:30.493Z",
+      "type": "TYPE",
+      "route": "/#contact",
+      "action": "Completed the contact form with realistic recruiter data",
+      "selector": "#contact-name, #contact-email-input, #contact-message",
+      "result": {
+        "name": "Jordan O'Connor",
+        "email": "jordan.recruiter@example.com",
+        "messageLength": 77
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:31.217Z",
+      "type": "SCREENSHOT",
+      "route": "/#contact",
+      "action": "Captured the completed form before submission",
+      "selector": "#contact form",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/contact-before-submit.png"
+    },
+    {
+      "at": "2026-08-24T06:58:33.178Z",
+      "type": "SUBMIT",
+      "route": "/#contact",
+      "action": "Submitted the contact form",
+      "selector": "#contact-submit",
+      "result": {
+        "successHeading": 1,
+        "inputRemoved": true,
+        "failedRequests": []
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/contact-after-submit.png"
+    },
+    {
+      "at": "2026-08-24T06:58:33.829Z",
+      "type": "CONSOLE",
+      "route": "/#contact",
+      "action": "Read console after submission",
+      "selector": "console",
+      "result": [
+        {
+          "at": "2026-08-24T06:58:14.663Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "at": "2026-08-24T06:58:14.674Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "at": "2026-08-24T06:58:15.099Z",
+          "surface": "desktop",
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "at": "2026-08-24T06:58:27.601Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "at": "2026-08-24T06:58:27.602Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "at": "2026-08-24T06:58:27.602Z",
+          "surface": "desktop",
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "at": "2026-08-24T06:58:29.083Z",
+          "surface": "desktop",
+          "type": "error",
+          "text": "Cannot read properties of null (reading 'querySelector')"
+        },
+        {
+          "at": "2026-08-24T06:58:29.084Z",
+          "surface": "desktop",
+          "type": "error",
+          "text": "Cannot read properties of null (reading 'querySelector')"
+        },
+        {
+          "at": "2026-08-24T06:58:29.084Z",
+          "surface": "desktop",
+          "type": "error",
+          "text": "Cannot read properties of null (reading 'querySelector')"
+        }
+      ]
+    },
+    {
+      "at": "2026-08-24T06:58:34.523Z",
+      "type": "ASSERT",
+      "route": "/#contact",
+      "action": "Returned to a fresh contact form",
+      "selector": "button[name=\"New Message\"]",
+      "result": {
+        "formRestored": true
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:35.873Z",
+      "type": "STATE_CHANGE",
+      "route": "/#contact",
+      "action": "Toggled the site theme",
+      "selector": "button[aria-label=\"Toggle theme\"]",
+      "result": {
+        "before": "light",
+        "after": "dark"
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:37.162Z",
+      "type": "OPEN",
+      "route": "/does-not-exist",
+      "action": "Opened an invalid route",
+      "selector": "URL",
+      "result": {
+        "heading": "There’s nothing at this address."
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/not-found.png"
+    },
+    {
+      "at": "2026-08-24T06:58:40.307Z",
+      "type": "ASSERT",
+      "route": "/",
+      "action": "Verified hero calls to action point to working destinations",
+      "selector": "#home a",
+      "result": {
+        "projectsHref": "#projects",
+        "emailHref": "mailto:arshadwebdeveloper10@gmail.co",
+        "brokenResumeLink": 0
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:45.370Z",
+      "type": "SCREENSHOT",
+      "route": "/",
+      "action": "Captured the mobile baseline with reduced motion requested",
+      "selector": "body",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/home-mobile.png"
+    },
+    {
+      "at": "2026-08-24T06:58:46.111Z",
+      "type": "OPEN",
+      "route": "/",
+      "action": "Opened the mobile navigation",
+      "selector": "#mobile-menu-toggle",
+      "result": {
+        "expanded": "true"
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/mobile-menu-open.png"
+    },
+    {
+      "at": "2026-08-24T06:58:46.795Z",
+      "type": "KEYBOARD",
+      "route": "/",
+      "action": "Closed the mobile navigation with Escape",
+      "selector": "#mobile-menu-toggle",
+      "result": {
+        "expanded": "false"
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:48.593Z",
+      "type": "TYPE",
+      "route": "/#contact",
+      "action": "Entered real-flavour mobile form data",
+      "selector": "#contact form",
+      "result": {
+        "name": "Zoë O'Connor",
+        "message": "Hello مرحبا こんにちは <script>alert('audit')</script>"
+      }
+    },
+    {
+      "at": "2026-08-24T06:58:49.327Z",
+      "type": "SCREENSHOT",
+      "route": "/#contact",
+      "action": "Captured mobile contact before submission",
+      "selector": "#contact form",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/mobile-contact-before-submit.png"
+    },
+    {
+      "at": "2026-08-24T06:58:51.271Z",
+      "type": "SUBMIT",
+      "route": "/#contact",
+      "action": "Submitted real-flavour data on mobile",
+      "selector": "#contact-submit",
+      "result": {
+        "successHeading": 1,
+        "console": [
+          {
+            "at": "2026-08-24T06:58:42.434Z",
+            "surface": "mobile",
+            "type": "debug",
+            "text": "[vite] connecting..."
+          },
+          {
+            "at": "2026-08-24T06:58:42.453Z",
+            "surface": "mobile",
+            "type": "debug",
+            "text": "[vite] connected."
+          },
+          {
+            "at": "2026-08-24T06:58:42.491Z",
+            "surface": "mobile",
+            "type": "info",
+            "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+          }
+        ]
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/mobile-contact-after-submit.png"
+    }
+  ],
+  "screenshots": [
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/home-desktop.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/projects-before-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/project-detail-after-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/related-project-result.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/contact-validation-error.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/contact-before-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/contact-after-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/not-found.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/home-mobile.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/mobile-menu-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/mobile-contact-before-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/redesign/mobile-contact-after-submit.png"
+  ],
+  "consoleEntries": [
+    {
+      "at": "2026-08-24T06:58:14.663Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:14.674Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:15.099Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:27.601Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:27.602Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:27.602Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:29.083Z",
+      "surface": "desktop",
+      "type": "error",
+      "text": "Cannot read properties of null (reading 'querySelector')"
+    },
+    {
+      "at": "2026-08-24T06:58:29.084Z",
+      "surface": "desktop",
+      "type": "error",
+      "text": "Cannot read properties of null (reading 'querySelector')"
+    },
+    {
+      "at": "2026-08-24T06:58:29.084Z",
+      "surface": "desktop",
+      "type": "error",
+      "text": "Cannot read properties of null (reading 'querySelector')"
+    },
+    {
+      "at": "2026-08-24T06:58:36.560Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:36.573Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:36.576Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:38.108Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:38.110Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:38.110Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.017Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.020Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.024Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.077Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.082Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.083Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.140Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.141Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.142Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.192Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.195Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.196Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.245Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.248Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.250Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.336Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.339Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.340Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.394Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.397Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.401Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.459Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.460Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.462Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.525Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.527Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.527Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.581Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.582Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.583Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.635Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.635Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.637Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.705Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.708Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.710Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:41.771Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:41.775Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:41.778Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T06:58:42.434Z",
+      "surface": "mobile",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T06:58:42.453Z",
+      "surface": "mobile",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T06:58:42.491Z",
+      "surface": "mobile",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    }
+  ],
+  "networkEntries": [],
+  "accessibility": [
+    {
+      "route": "/projects/devflow",
+      "violations": []
+    },
+    {
+      "route": "/does-not-exist",
+      "violations": []
+    },
+    {
+      "route": "/",
+      "violations": []
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 1920,
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1920,
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1440,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1280,
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1024,
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 768,
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "viewportWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 375,
+      "viewportWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "offenders": []
+    }
+  ],
+  "performance": {
+    "lcp": 64,
+    "cls": 0,
+    "inp": 0
+  },
+  "reducedMotion": {
+    "requested": true,
+    "heroTransitionDuration": "1e-05s",
+    "navTransitionDuration": "1e-05s"
+  },
+  "summary": {
+    "manifestEntries": 24,
+    "screenshots": 12,
+    "consoleWarnings": 0,
+    "consoleErrors": 3,
+    "network5xx": 0,
+    "network4xx": 0,
+    "axeCritical": 0,
+    "axeSerious": 0,
+    "layoutCollapses": 0
+  }
+}

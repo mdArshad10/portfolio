@@ -1,36 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
+@import "@fontsource-variable/onest";
 
 @custom-variant dark (&:is(.dark *));
 
-/* ─── Precision Architect Design Tokens ─── */
 @theme inline {
-  --font-sans: 'Inter Variable', sans-serif;
-  --font-heading: 'Inter Variable', sans-serif;
-
-  /* Brand Colors */
-  --color-primary-purple: oklch(0.52 0.18 285);
-  --color-primary-purple-dim: oklch(0.84 0.09 285);
-  --color-primary-container: oklch(0.61 0.16 285);
-
-  /* Surface Tiers */
-  --color-surface-lowest: oklch(0.14 0.006 285);
-  --color-surface-low: oklch(0.19 0.006 285);
-  --color-surface: oklch(0.16 0.006 285);
-  --color-surface-container: oklch(0.21 0.006 285);
-  --color-surface-container-high: oklch(0.25 0.006 285);
-  --color-surface-container-highest: oklch(0.29 0.006 285);
-  --color-surface-bright: oklch(0.32 0.006 285);
-
-  /* On-Surface */
-  --color-on-surface: oklch(0.92 0.008 285);
-  --color-on-surface-variant: oklch(0.82 0.02 285);
-  --color-outline: oklch(0.68 0.025 285);
-  --color-outline-variant: oklch(0.42 0.025 285);
-
-  /* Shadcn token mappings */
+  --font-sans: "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Onest", ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -49,163 +26,49 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-sm: calc(var(--radius) * 0.67);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.33);
+  --radius-xl: calc(var(--radius) * 1.67);
 }
 
-/* Light mode */
 :root {
-  --background: oklch(0.98 0.006 285);
-  --foreground: oklch(0.18 0.012 285);
-  --card: oklch(0.95 0.008 285);
-  --card-foreground: oklch(0.18 0.012 285);
-  --popover: oklch(0.98 0.006 285);
-  --popover-foreground: oklch(0.18 0.012 285);
-  --primary: oklch(0.48 0.18 285);
-  --primary-foreground: oklch(0.98 0.006 285);
-  --secondary: oklch(0.93 0.012 285);
-  --secondary-foreground: oklch(0.18 0.012 285);
-  --muted: oklch(0.93 0.012 285);
-  --muted-foreground: oklch(0.43 0.025 285);
-  --accent: oklch(0.91 0.045 285);
-  --accent-foreground: oklch(0.18 0.012 285);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.58 0.025 285 / 0.34);
-  --input: oklch(0.58 0.025 285 / 0.28);
-  --ring: oklch(0.48 0.18 285);
-  --radius: 0.25rem;
-  --chart-1: oklch(0.48 0.18 285);
-  --chart-2: oklch(0.78 0.1 285);
-  --chart-3: oklch(0.58 0.16 285);
-  --chart-4: oklch(0.43 0.07 285);
-  --chart-5: oklch(0.3 0.13 285);
-  --sidebar: oklch(0.95 0.008 285);
-  --sidebar-foreground: oklch(0.18 0.012 285);
-  --sidebar-primary: oklch(0.48 0.18 285);
-  --sidebar-primary-foreground: oklch(0.98 0.006 285);
-  --sidebar-accent: oklch(0.91 0.045 285);
-  --sidebar-accent-foreground: oklch(0.18 0.012 285);
-  --sidebar-border: oklch(0.58 0.025 285 / 0.34);
-  --sidebar-ring: oklch(0.48 0.18 285);
-}
-
-/* Dark mode: Precision Architect palette */
-.dark {
-  --background: oklch(0.17 0.008 285);
-  --foreground: oklch(0.92 0.008 285);
-  --card: oklch(0.22 0.008 285);
-  --card-foreground: oklch(0.92 0.008 285);
-  --popover: oklch(0.22 0.008 285);
-  --popover-foreground: oklch(0.92 0.008 285);
-  --primary: oklch(0.83 0.1 285);
-  --primary-foreground: oklch(0.28 0.11 285);
-  --secondary: oklch(0.42 0.07 285);
-  --secondary-foreground: oklch(0.92 0.008 285);
-  --muted: oklch(0.27 0.008 285);
-  --muted-foreground: oklch(0.72 0.025 285);
-  --accent: oklch(0.31 0.012 285);
-  --accent-foreground: oklch(0.92 0.008 285);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.7 0.025 285 / 0.32);
-  --input: oklch(0.92 0.008 285 / 0.12);
-  --ring: oklch(0.83 0.1 285);
-  --chart-1: oklch(0.83 0.1 285);
-  --chart-2: oklch(0.58 0.16 285);
-  --chart-3: oklch(0.65 0.15 285);
-  --chart-4: oklch(0.8 0.15 85);
-  --chart-5: oklch(0.42 0.07 285);
-  --sidebar: oklch(0.22 0.008 285);
-  --sidebar-foreground: oklch(0.92 0.008 285);
-  --sidebar-primary: oklch(0.58 0.16 285);
-  --sidebar-primary-foreground: oklch(0.98 0.006 285);
-  --sidebar-accent: oklch(0.31 0.012 285);
-  --sidebar-accent-foreground: oklch(0.92 0.008 285);
-  --sidebar-border: oklch(0.7 0.025 285 / 0.32);
-  --sidebar-ring: oklch(0.83 0.1 285);
-}
-
-/* transitions-dev — copy this :root block into your project once.
-   Every transition snippet reads from these semantic names. */
-:root {
-  /* Card resize */
-  --resize-dur: 300ms;
-  --resize-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Number pop-in */
-  --digit-dur: 500ms;
-  --digit-distance: 8px;
-  --digit-stagger: 70ms;
-  --digit-blur: 2px;
-  --digit-ease: cubic-bezier(0.34, 1.45, 0.64, 1);
-  --digit-dir-x: 0;
-  --digit-dir-y: 1;
-  /* Notification badge */
-  --badge-slide-dur: 260ms;
-  --badge-pop-dur: 500ms;
-  --badge-pop-close-dur: 180ms;
-  --badge-fade-dur: 400ms;
-  --badge-fade-close-dur: 180ms;
-  --badge-blur: 2px;
-  --badge-offset-x: -8.2px;
-  --badge-offset-y: 12.4px;
-  --badge-slide-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --badge-pop-ease: cubic-bezier(0.34, 1.36, 0.64, 1);
-  --badge-close-ease: cubic-bezier(0.4, 0, 0.2, 1);
-  /* Text states swap */
+  --background: oklch(0.985 0.004 255);
+  --foreground: oklch(0.205 0.018 258);
+  --card: oklch(0.998 0.002 255);
+  --card-foreground: oklch(0.205 0.018 258);
+  --popover: oklch(0.998 0.002 255);
+  --popover-foreground: oklch(0.205 0.018 258);
+  --primary: oklch(0.55 0.19 258);
+  --primary-foreground: oklch(0.985 0.004 255);
+  --secondary: oklch(0.955 0.012 258);
+  --secondary-foreground: oklch(0.27 0.02 258);
+  --muted: oklch(0.955 0.012 258);
+  --muted-foreground: oklch(0.48 0.018 258);
+  --accent: oklch(0.955 0.025 258);
+  --accent-foreground: oklch(0.40 0.15 258);
+  --destructive: oklch(0.56 0.2 27);
+  --border: oklch(0.88 0.012 258);
+  --input: oklch(0.84 0.014 258);
+  --ring: oklch(0.55 0.19 258);
+  --radius: 0.625rem;
+  --shadow-soft: 0 16px 50px oklch(0.25 0.04 258 / 0.08);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
   --text-swap-dur: 200ms;
   --text-swap-translate-y: 8px;
   --text-swap-blur: 2px;
   --text-swap-ease: ease-out;
-  /* Menu dropdown */
-  --dropdown-open-dur: 250ms;
-  --dropdown-close-dur: 150ms;
-  --dropdown-pre-scale: 0.97;
-  --dropdown-closing-scale: 0.99;
-  --dropdown-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Modal open / close */
-  --modal-open-dur: 250ms;
-  --modal-close-dur: 150ms;
-  --modal-scale: 0.96;
-  --modal-scale-close: 0.96;
-  --modal-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Panel reveal */
   --panel-open-dur: 400ms;
   --panel-close-dur: 350ms;
   --panel-translate-y: 100px;
   --panel-blur: 2px;
   --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Page side-by-side */
-  --page-slide-dur: 200ms;
-  --page-fade-dur: 200ms;
-  --page-slide-distance: 8px;
-  --page-blur: 3px;
-  --page-stagger: 0ms;
-  --page-exit-enabled: 1;
-  --page-slide-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --page-fade-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Icon swap */
   --icon-swap-dur: 200ms;
   --icon-swap-blur: 2px;
   --icon-swap-start-scale: 0.25;
   --icon-swap-ease: ease-in-out;
-  /* Success check */
   --check-opacity-dur: 550ms;
   --check-rotate-dur: 550ms;
   --check-rotate-from: 80deg;
@@ -220,14 +83,6 @@
   --check-ease-rotate: cubic-bezier(0.22, 1, 0.36, 1);
   --check-ease-bob: cubic-bezier(0.34, 1.35, 0.64, 1);
   --check-ease-path: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Avatar group hover */
-  --avatar-lift: -4px;
-  --avatar-dur: 320ms;
-  --avatar-scale: 1.05;
-  --avatar-falloff: 0.45;
-  --avatar-ease-in: cubic-bezier(0.22, 1, 0.36, 1);
-  --avatar-ease-out: cubic-bezier(0.34, 3.85, 0.64, 1);
-  /* Error state shake */
   --shake-distance: 6px;
   --shake-overshoot: 4px;
   --shake-dur-a: 80ms;
@@ -237,68 +92,47 @@
   --revert-dur: 280ms;
 }
 
+.dark {
+  --background: oklch(0.16 0.014 258);
+  --foreground: oklch(0.94 0.008 258);
+  --card: oklch(0.20 0.014 258);
+  --card-foreground: oklch(0.94 0.008 258);
+  --popover: oklch(0.20 0.014 258);
+  --popover-foreground: oklch(0.94 0.008 258);
+  --primary: oklch(0.70 0.15 258);
+  --primary-foreground: oklch(0.16 0.014 258);
+  --secondary: oklch(0.235 0.014 258);
+  --secondary-foreground: oklch(0.94 0.008 258);
+  --muted: oklch(0.235 0.014 258);
+  --muted-foreground: oklch(0.70 0.014 258);
+  --accent: oklch(0.25 0.05 258);
+  --accent-foreground: oklch(0.84 0.11 258);
+  --destructive: oklch(0.70 0.16 27);
+  --border: oklch(0.31 0.016 258);
+  --input: oklch(0.38 0.018 258);
+  --ring: oklch(0.70 0.15 258);
+  --shadow-soft: 0 18px 60px oklch(0.05 0.01 258 / 0.35);
+}
+
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  html {
-    @apply font-sans;
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-  }
-  body {
-    @apply bg-background text-foreground;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  :focus-visible {
-    outline: 3px solid var(--ring);
-    outline-offset: 3px;
-  }
+  * { @apply border-border outline-ring/50; }
+  html { @apply font-sans; scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body { @apply bg-background text-foreground; min-width: 320px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  ::selection { color: var(--primary-foreground); background: var(--primary); }
+  :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
 }
 
-.skip-link {
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 100;
-  transform: translateY(-150%);
-  background: var(--foreground);
-  color: var(--background);
-  padding: 0.75rem 1rem;
-  font-weight: 800;
-}
+.site-shell { width: min(100% - 3rem, 70rem); margin-inline: auto; }
+.section-space { padding-block: clamp(5rem, 10vw, 8.5rem); }
+.section-kicker { color: var(--primary); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; }
+.section-title { max-width: 16ch; font-size: clamp(2.25rem, 5vw, 4.25rem); font-weight: 650; letter-spacing: -0.045em; line-height: 1.02; }
+.body-copy { max-width: 68ch; color: var(--muted-foreground); font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.7; }
 
-.skip-link:focus-visible {
-  transform: translateY(0);
-}
+.skip-link { position: fixed; top: 0.75rem; left: 0.75rem; z-index: 100; transform: translateY(-150%); border-radius: var(--radius); background: var(--foreground); color: var(--background); padding: 0.75rem 1rem; font-weight: 600; }
+.skip-link:focus-visible { transform: translateY(0); }
 
-.t-text-swap {
-  display: inline-block;
-  transform: translateY(0);
-  filter: blur(0);
-  opacity: 1;
-  transition:
-    transform var(--text-swap-dur) var(--text-swap-ease),
-    filter    var(--text-swap-dur) var(--text-swap-ease),
-    opacity   var(--text-swap-dur) var(--text-swap-ease);
-  will-change: transform, filter, opacity;
-}
-.t-text-swap.is-exit {
-  transform: translateY(calc(var(--text-swap-translate-y) * -1));
-  filter: blur(var(--text-swap-blur));
-  opacity: 0;
-}
-.t-text-swap.is-enter-start {
-  transform: translateY(var(--text-swap-translate-y));
-  filter: blur(var(--text-swap-blur));
-  opacity: 0;
-  transition: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .t-text-swap { transition: none !important; }
-}
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 520ms var(--ease-out-quint), transform 520ms var(--ease-out-quint); }
+.reveal[data-visible="true"] { opacity: 1; transform: translateY(0); }
 
 .t-panel-slide {
   transform: translateY(var(--panel-translate-y));
@@ -355,20 +189,83 @@
   .t-icon-swap .t-icon { transition: none !important; }
 }
 
-/* Wrapper drives the appear animation; it doesn't own any
-   sizing or color so you can drop in any icon. */
+.t-text-swap {
+  display: inline-block;
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+  transition:
+    transform var(--text-swap-dur) var(--text-swap-ease),
+    filter    var(--text-swap-dur) var(--text-swap-ease),
+    opacity   var(--text-swap-dur) var(--text-swap-ease);
+  will-change: transform, filter, opacity;
+}
+.t-text-swap.is-exit {
+  transform: translateY(calc(var(--text-swap-translate-y) * -1));
+  filter: blur(var(--text-swap-blur));
+  opacity: 0;
+}
+.t-text-swap.is-enter-start {
+  transform: translateY(var(--text-swap-translate-y));
+  filter: blur(var(--text-swap-blur));
+  opacity: 0;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-text-swap { transition: none !important; }
+}
+
+.t-input {
+  transition: border-color 150ms ease-out;
+  will-change: transform;
+}
+.t-input.is-error {
+  transition: border-color var(--revert-dur, 280ms) ease-out;
+}
+
+.t-error-msg {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity    var(--revert-dur, 280ms) ease-out,
+    visibility 0s linear var(--revert-dur, 280ms);
+}
+.t-input-wrap.is-error .t-error-msg {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity    var(--revert-dur, 280ms) ease-out,
+    visibility 0s linear 0s;
+}
+
+.t-input.is-shaking {
+  animation: t-input-shake calc(
+      var(--shake-dur-a) * 2 + var(--shake-dur-b) * 2
+    ) linear;
+}
+@keyframes t-input-shake {
+  0%      { transform: translateX(0);                                 animation-timing-function: var(--shake-ease); }
+  28.57%  { transform: translateX(var(--shake-distance));             animation-timing-function: var(--shake-ease); }
+  57.14%  { transform: translateX(calc(var(--shake-distance) * -1)); animation-timing-function: var(--shake-ease); }
+  78.57%  { transform: translateX(var(--shake-overshoot));            animation-timing-function: var(--shake-ease); }
+  100%    { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-input { animation: none !important; transform: none !important; }
+}
+
+.t-input.is-error { border-color: var(--destructive); }
+.t-error-msg { min-height: 1.1rem; }
+
 .t-success-check {
   display: inline-block;
   transform-origin: center;
   opacity: 0;
   will-change: transform, opacity, filter;
 }
-/* overflow: visible keeps the stroke from clipping while it
-   draws; display: block kills the inline whitespace under SVGs. */
 .t-success-check svg { display: block; overflow: visible; }
-/* Stroke-draw setup. Replace 20 with the result of
-   path.getTotalLength() for your path; round caps mean any
-   sub-pixel overshoot is invisible. */
 .t-success-check svg path {
   stroke-dasharray: 20;
   stroke-dashoffset: 20;
@@ -405,190 +302,10 @@
   .t-success-check svg path { animation: none !important; stroke-dashoffset: 0 !important; }
 }
 
-/* Border-color tween. Define your input's default / focused
-   / error border-color in your own component CSS — this rule
-   only owns the interpolation. Use a constant border-width
-   across states so the tween never shifts inner content. */
-.t-input {
-  transition: border-color 150ms ease-out;
-  will-change: transform;
-}
-.t-input.is-error {
-  /* Error border auto-reverts on the hold timer, so the
-     fade-out uses the slower revert duration (matches the
-     message fade). */
-  transition: border-color var(--revert-dur, 280ms) ease-out;
-}
-
-/* Error message reveal. Visibility is delayed by --revert-dur
-   on hide so the message stays painted for the full opacity
-   fade-out. Entering .is-error drops the delay to 0 so the
-   message becomes visible immediately. */
-.t-error-msg {
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity    var(--revert-dur, 280ms) ease-out,
-    visibility 0s linear var(--revert-dur, 280ms);
-}
-.t-input-wrap.is-error .t-error-msg {
-  opacity: 1;
-  visibility: visible;
-  transition:
-    opacity    var(--revert-dur, 280ms) ease-out,
-    visibility 0s linear 0s;
-}
-
-/* Multi-segment keyframe with per-stop easing so each leg
-   of the shake follows its own cubic-bezier independently.
-   %-stops are cumulative durations as a fraction of the
-   total (80, 60, 80, 60 = 280ms): 28.57%, 57.14%, 78.57%,
-   100%. Recompute if any segment duration changes. */
-.t-input.is-shaking {
-  animation: t-input-shake calc(
-      var(--shake-dur-a) * 2 + var(--shake-dur-b) * 2
-    ) linear;
-}
-@keyframes t-input-shake {
-  0%      { transform: translateX(0);                                 animation-timing-function: var(--shake-ease); }
-  28.57%  { transform: translateX(var(--shake-distance));             animation-timing-function: var(--shake-ease); }
-  57.14%  { transform: translateX(calc(var(--shake-distance) * -1)); animation-timing-function: var(--shake-ease); }
-  78.57%  { transform: translateX(var(--shake-overshoot));            animation-timing-function: var(--shake-ease); }
-  100%    { transform: translateX(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .t-input { animation: none !important; transform: none !important; }
-}
-
-.t-input.is-error {
-  border-color: var(--destructive);
-}
+@media (max-width: 640px) { .site-shell { width: min(100% - 2rem, 70rem); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  .reveal { opacity: 1; transform: none; }
 }
-
-/* ─── Precision Architect Utility Classes ─── */
-@layer utilities {
-  /* Typography Scale */
-  .display-lg {
-    font-size: 3.5rem;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-  .headline-md {
-    font-size: 1.75rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
-  }
-  .title-sm {
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: 1.5;
-  }
-  .body-md {
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: 1.65;
-  }
-  .label-md {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    line-height: 1.5;
-  }
-
-  /* Glassmorphism Navbar */
-  .glass-nav {
-    background: rgba(19, 19, 19, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid rgba(71, 69, 82, 0.1);
-  }
-
-  /* Ghost border */
-  .ghost-border {
-    border: 0.5px solid rgba(71, 69, 82, 0.2);
-  }
-
-  /* Featured border */
-  .featured-border {
-    border: 1.5px solid #7F77DD;
-  }
-
-  /* Accent gradient */
-  .accent-gradient {
-    background: linear-gradient(135deg, #7F77DD, #8C84EB);
-  }
-
-  /* Subtle ambient shadow */
-  .ambient-shadow {
-    box-shadow: 0 10px 40px rgba(229, 226, 225, 0.04);
-  }
-
-  /* Skill chip */
-  .skill-chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 2px;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    line-height: 1.5;
-    background: rgba(71, 69, 82, 0.15);
-    border: 0.5px solid rgba(71, 69, 82, 0.25);
-  }
-
-  /* Tag chip */
-  .tag-chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 2px;
-    padding: 0.125rem 0.625rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    line-height: 1.5;
-    color: #c5c0ff;
-    background: rgba(127, 119, 221, 0.12);
-    border: 0.5px solid rgba(127, 119, 221, 0.3);
-  }
-}
-
-/* ─── Scroll animations ─── */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-/* Stagger helpers */
-.animation-delay-100 { animation-delay: 100ms; }
-.animation-delay-200 { animation-delay: 200ms; }
-.animation-delay-300 { animation-delay: 300ms; }
-.animation-delay-400 { animation-delay: 400ms; }
-.animation-delay-500 { animation-delay: 500ms; }

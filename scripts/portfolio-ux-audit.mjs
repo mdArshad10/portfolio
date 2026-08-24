@@ -161,7 +161,7 @@ await record(
 const projectBefore = await shot(page, "projects-before-open")
 await record("SCREENSHOT", "/#projects", "Captured the project archive before drill-down", "#projects", "viewport screenshot", projectBefore)
 await page.locator("#project-devflow-detail").click()
-await page.waitForFunction(() => document.querySelector("h1")?.textContent?.includes("DEVFLOW"))
+await page.waitForFunction(() => document.querySelector("h1")?.textContent?.includes("DevFlow"))
 await record("OPEN", "/projects/devflow", "Opened the DevFlow case study", "#project-devflow-detail", { url: page.url(), heading: await page.locator("h1").innerText() })
 const projectAfter = await shot(page, "project-detail-after-open", true)
 await record("SCREENSHOT", "/projects/devflow", "Captured the opened project detail", "main, section", "full-page screenshot", projectAfter)
@@ -171,7 +171,7 @@ const related = page.locator('section:last-of-type a[href^="/projects/"]').first
 if (await related.count()) {
   const relatedHref = await related.getAttribute("href")
   await related.click()
-  await page.waitForFunction(() => document.querySelector("h1")?.textContent?.includes("NEXUS FINANCIAL"))
+  await page.waitForFunction(() => document.querySelector("h1")?.textContent?.includes("Nexus Financial"))
   await record("ROUND_TRIP", page.url().replace(baseUrl, ""), "Opened the first related project", `a[href="${relatedHref}"]`, { url: page.url(), body: (await page.locator("body").innerText()).slice(0, 180) })
   const relatedResult = await shot(page, "related-project-result")
   await record("ASSERT", page.url().replace(baseUrl, ""), "Verified the related project destination", "h1, main", {
@@ -205,7 +205,7 @@ await page.locator("#contact-submit").click()
 await pause(1200)
 const contactAfter = await shot(page, "contact-after-submit")
 await record("SUBMIT", "/#contact", "Submitted the contact form", "#contact-submit", {
-  successHeading: await page.getByText(/Message ready/i).count(),
+  successHeading: await page.getByText(/email draft is ready/i).count(),
   inputRemoved: await page.locator("#contact-name").count() === 0,
   failedRequests: networkEntries.filter((entry) => entry.surface === "desktop"),
 }, contactAfter)
@@ -296,7 +296,7 @@ await mobile.locator("#contact-submit").click()
 await pause(1200)
 const mobileContactAfter = await shot(mobile, "mobile-contact-after-submit")
 await record("SUBMIT", "/#contact", "Submitted real-flavour data on mobile", "#contact-submit", {
-  successHeading: await mobile.getByText(/Message ready/i).count(),
+  successHeading: await mobile.getByText(/email draft is ready/i).count(),
   console: consoleEntries.filter((entry) => entry.surface === "mobile"),
 }, mobileContactAfter)
 

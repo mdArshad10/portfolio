@@ -59,9 +59,9 @@ await page.locator("#contact-name").fill("Jordan O'Connor")
 await page.locator("#contact-email-input").fill("jordan@example.com")
 await page.locator("#contact-message").fill("I would like to discuss a full-stack role.")
 await page.locator("#contact-submit").click()
-await page.getByRole("heading", { name: "Message ready" }).waitFor()
+await page.getByRole("heading", { name: "Your email draft is ready." }).waitFor()
 const contact = {
-  heading: await page.getByRole("heading", { name: "Message ready" }).innerText(),
+  heading: await page.getByRole("heading", { name: "Your email draft is ready." }).innerText(),
   emailDraft: await page.getByRole("link", { name: /open email draft/i }).getAttribute("href"),
 }
 

@@ -1,38 +1,16 @@
-import { personalInfo } from "@/data/portfolio";
+import { personalInfo } from "@/data/portfolio"
 
 export function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className="border-t-2 border-foreground bg-foreground py-10 text-background">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 sm:flex-row lg:px-12">
-        <p className="label-md text-background/80">
-          © {year} {personalInfo.name}. Built with precision.
-        </p>
-        <div className="flex items-center gap-6">
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="label-md text-background/80 transition-colors duration-200 hover:text-background"
-          >
-            Source Code
-          </a>
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="label-md text-background/80 transition-colors duration-200 hover:text-background"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="label-md text-background/80 transition-colors duration-200 hover:text-background"
-          >
-            Email
-          </a>
+    <footer className="border-t border-border py-8">
+      <div className="site-shell flex flex-col gap-5 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {personalInfo.name}</p>
+        <div className="flex flex-wrap gap-5">
+          <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">GitHub</a>
+          <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">LinkedIn</a>
+          <a href={`mailto:${personalInfo.email}`} className="transition-colors hover:text-foreground">Email</a>
         </div>
       </div>
     </footer>
-  );
+  )
 }
