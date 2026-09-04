@@ -14,6 +14,14 @@ export function useInView(options: UseInViewOptions = {}) {
     const el = ref.current;
     if (!el) return;
 
+    if (
+      !("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      const frame = window.requestAnimationFrame(() => setInView(true));
+      return () => window.cancelAnimationFrame(frame);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

@@ -1,0 +1,1220 @@
+{
+  "label": "before",
+  "baseUrl": "http://127.0.0.1:5173",
+  "persona": "time-pressed recruiter or prospective client, moderately technical, evaluating in a few minutes on laptop and phone",
+  "generatedAt": "2026-08-24T05:47:48.970Z",
+  "manifest": [
+    {
+      "at": "2026-08-24T05:47:23.695Z",
+      "type": "CAPABILITY",
+      "route": "/",
+      "action": "Loaded the public portfolio and queried the primary heading",
+      "selector": "h1",
+      "result": "FULL-STACK DEVELOPER WHO SHIPS CLEAN, USER-FOCUSED WEB APPS."
+    },
+    {
+      "at": "2026-08-24T05:47:24.506Z",
+      "type": "SCREENSHOT",
+      "route": "/",
+      "action": "Captured the desktop baseline",
+      "selector": "body",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/home-desktop.png"
+    },
+    {
+      "at": "2026-08-24T05:47:26.244Z",
+      "type": "NAVIGATE",
+      "route": "/#projects",
+      "action": "Clicked Projects in the primary navigation",
+      "selector": "a[href=\"/#projects\"]",
+      "result": {
+        "url": "http://127.0.0.1:5173/#projects",
+        "scrollY": 1273
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:27.041Z",
+      "type": "SCREENSHOT",
+      "route": "/#projects",
+      "action": "Captured the project archive before drill-down",
+      "selector": "#projects",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/projects-before-open.png"
+    },
+    {
+      "at": "2026-08-24T05:47:27.849Z",
+      "type": "OPEN",
+      "route": "/projects/devflow",
+      "action": "Opened the DevFlow case study",
+      "selector": "#project-devflow-detail",
+      "result": {
+        "url": "http://127.0.0.1:5173/projects/devflow",
+        "heading": "DEVFLOW"
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:28.617Z",
+      "type": "SCREENSHOT",
+      "route": "/projects/devflow",
+      "action": "Captured the opened project detail",
+      "selector": "main, section",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/project-detail-after-open.png"
+    },
+    {
+      "at": "2026-08-24T05:47:29.781Z",
+      "type": "ROUND_TRIP",
+      "route": "/project/nexus-architecture",
+      "action": "Opened the first related project",
+      "selector": "a[href=\"/project/nexus-architecture\"]",
+      "result": {
+        "url": "http://127.0.0.1:5173/project/nexus-architecture",
+        "body": "SYS\nARSHAD\nWORK\nEXPERTISE\nCONTACT\nBACK TO ARCHIVE\nSYS.02 //\nFULL-STACK\nREACT\nNODE.JS\nDEVFLOW\n\nDeveloper task manager with GitHub sync\n\nYEAR\n2024\nROLE\nSolo developer\nSOURCE\n// CONTE"
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:30.519Z",
+      "type": "ASSERT",
+      "route": "/project/nexus-architecture",
+      "action": "Verified the related project destination",
+      "selector": "h1, main",
+      "result": {
+        "notFound": true
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/related-project-result.png"
+    },
+    {
+      "at": "2026-08-24T05:47:31.861Z",
+      "type": "TYPE",
+      "route": "/#contact",
+      "action": "Completed the contact form with realistic recruiter data",
+      "selector": "#contact-name, #contact-email-input, #contact-message",
+      "result": {
+        "name": "Jordan O'Connor",
+        "email": "jordan.recruiter@example.com",
+        "messageLength": 77
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:32.554Z",
+      "type": "SCREENSHOT",
+      "route": "/#contact",
+      "action": "Captured the completed form before submission",
+      "selector": "#contact form",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/contact-before-submit.png"
+    },
+    {
+      "at": "2026-08-24T05:47:34.497Z",
+      "type": "SUBMIT",
+      "route": "/#contact",
+      "action": "Submitted the contact form",
+      "selector": "#contact-submit",
+      "result": {
+        "successHeading": 1,
+        "inputRemoved": true,
+        "failedRequests": [
+          {
+            "at": "2026-08-24T05:47:33.260Z",
+            "surface": "desktop",
+            "status": 404,
+            "method": "POST",
+            "url": "http://127.0.0.1:5173/api/send-email"
+          }
+        ]
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/contact-after-submit.png"
+    },
+    {
+      "at": "2026-08-24T05:47:35.149Z",
+      "type": "CONSOLE",
+      "route": "/#contact",
+      "action": "Read console after submission",
+      "selector": "console",
+      "result": [
+        {
+          "at": "2026-08-24T05:47:22.385Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "at": "2026-08-24T05:47:22.402Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "at": "2026-08-24T05:47:23.001Z",
+          "surface": "desktop",
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "at": "2026-08-24T05:47:31.219Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connecting..."
+        },
+        {
+          "at": "2026-08-24T05:47:31.224Z",
+          "surface": "desktop",
+          "type": "info",
+          "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+        },
+        {
+          "at": "2026-08-24T05:47:31.272Z",
+          "surface": "desktop",
+          "type": "debug",
+          "text": "[vite] connected."
+        },
+        {
+          "at": "2026-08-24T05:47:33.260Z",
+          "surface": "desktop",
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        },
+        {
+          "at": "2026-08-24T05:47:33.261Z",
+          "surface": "desktop",
+          "type": "log",
+          "text": "Mocking email success (API not found): {name: Jordan O'Connor, email: jordan.recruiter@example.com, message: Hi Arshad, I would like to discuss a full-stack role. Can we speak this week?}"
+        }
+      ]
+    },
+    {
+      "at": "2026-08-24T05:47:35.836Z",
+      "type": "ASSERT",
+      "route": "/#contact",
+      "action": "Returned to a fresh contact form",
+      "selector": "button[name=\"New Message\"]",
+      "result": {
+        "formRestored": true
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:37.177Z",
+      "type": "STATE_CHANGE",
+      "route": "/#contact",
+      "action": "Toggled the site theme",
+      "selector": "button[aria-label=\"Toggle theme\"]",
+      "result": {
+        "before": "dark",
+        "after": "light"
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:38.490Z",
+      "type": "OPEN",
+      "route": "/does-not-exist",
+      "action": "Opened an invalid route",
+      "selector": "URL",
+      "result": {
+        "heading": "This page doesn't exist."
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/not-found.png"
+    },
+    {
+      "at": "2026-08-24T05:47:40.286Z",
+      "type": "NETWORK",
+      "route": "/",
+      "action": "Requested the resume linked from the hero",
+      "selector": "a[href=\"/resume.pdf\"]",
+      "result": {
+        "status": 200,
+        "type": "text/html",
+        "bytes": 1861
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:43.159Z",
+      "type": "SCREENSHOT",
+      "route": "/",
+      "action": "Captured the mobile baseline with reduced motion requested",
+      "selector": "body",
+      "result": "full-page screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/home-mobile.png"
+    },
+    {
+      "at": "2026-08-24T05:47:43.949Z",
+      "type": "OPEN",
+      "route": "/",
+      "action": "Opened the mobile navigation",
+      "selector": "#mobile-menu-toggle",
+      "result": {
+        "expanded": null
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/mobile-menu-open.png"
+    },
+    {
+      "at": "2026-08-24T05:47:45.626Z",
+      "type": "TYPE",
+      "route": "/#contact",
+      "action": "Entered real-flavour mobile form data",
+      "selector": "#contact form",
+      "result": {
+        "name": "Zoë O'Connor",
+        "message": "Hello مرحبا こんにちは <script>alert('audit')</script>"
+      }
+    },
+    {
+      "at": "2026-08-24T05:47:46.331Z",
+      "type": "SCREENSHOT",
+      "route": "/#contact",
+      "action": "Captured mobile contact before submission",
+      "selector": "#contact form",
+      "result": "viewport screenshot",
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/mobile-contact-before-submit.png"
+    },
+    {
+      "at": "2026-08-24T05:47:48.272Z",
+      "type": "SUBMIT",
+      "route": "/#contact",
+      "action": "Submitted real-flavour data on mobile",
+      "selector": "#contact-submit",
+      "result": {
+        "successHeading": 1,
+        "console": [
+          {
+            "at": "2026-08-24T05:47:42.408Z",
+            "surface": "mobile",
+            "type": "debug",
+            "text": "[vite] connecting..."
+          },
+          {
+            "at": "2026-08-24T05:47:42.417Z",
+            "surface": "mobile",
+            "type": "debug",
+            "text": "[vite] connected."
+          },
+          {
+            "at": "2026-08-24T05:47:42.463Z",
+            "surface": "mobile",
+            "type": "info",
+            "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+          },
+          {
+            "at": "2026-08-24T05:47:47.019Z",
+            "surface": "mobile",
+            "type": "error",
+            "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+          },
+          {
+            "at": "2026-08-24T05:47:47.019Z",
+            "surface": "mobile",
+            "type": "log",
+            "text": "Mocking email success (API not found): {name: Zoë O'Connor, email: zoe@example.com, message: Hello مرحبا こんにちは <script>alert('audit')</script>}"
+          }
+        ]
+      },
+      "screenshot": "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/mobile-contact-after-submit.png"
+    }
+  ],
+  "screenshots": [
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/home-desktop.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/projects-before-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/project-detail-after-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/related-project-result.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/contact-before-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/contact-after-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/not-found.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/home-mobile.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/mobile-menu-open.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/mobile-contact-before-submit.png",
+    "/Users/pasdigital/Desktop/Projects/Testing/portfolio/artifacts/ux-audit/before/mobile-contact-after-submit.png"
+  ],
+  "consoleEntries": [
+    {
+      "at": "2026-08-24T05:47:22.385Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:22.402Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:23.001Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:31.219Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:31.224Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:31.272Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:33.260Z",
+      "surface": "desktop",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "at": "2026-08-24T05:47:33.261Z",
+      "surface": "desktop",
+      "type": "log",
+      "text": "Mocking email success (API not found): {name: Jordan O'Connor, email: jordan.recruiter@example.com, message: Hi Arshad, I would like to discuss a full-stack role. Can we speak this week?}"
+    },
+    {
+      "at": "2026-08-24T05:47:37.875Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:37.878Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:37.880Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:39.418Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:39.419Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:39.420Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.018Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.020Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.024Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.082Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.085Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.086Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.141Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.145Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.147Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.209Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.213Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.215Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.265Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.268Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.270Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.334Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.336Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.337Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.393Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.396Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.396Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.452Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.454Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.456Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.518Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.520Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.521Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.570Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.571Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.573Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.628Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.629Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.630Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.687Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.689Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.691Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:41.743Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:41.745Z",
+      "surface": "desktop",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:41.746Z",
+      "surface": "desktop",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:42.408Z",
+      "surface": "mobile",
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "at": "2026-08-24T05:47:42.417Z",
+      "surface": "mobile",
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "at": "2026-08-24T05:47:42.463Z",
+      "surface": "mobile",
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "at": "2026-08-24T05:47:47.019Z",
+      "surface": "mobile",
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "at": "2026-08-24T05:47:47.019Z",
+      "surface": "mobile",
+      "type": "log",
+      "text": "Mocking email success (API not found): {name: Zoë O'Connor, email: zoe@example.com, message: Hello مرحبا こんにちは <script>alert('audit')</script>}"
+    }
+  ],
+  "networkEntries": [
+    {
+      "at": "2026-08-24T05:47:33.260Z",
+      "surface": "desktop",
+      "status": 404,
+      "method": "POST",
+      "url": "http://127.0.0.1:5173/api/send-email"
+    },
+    {
+      "at": "2026-08-24T05:47:47.019Z",
+      "surface": "mobile",
+      "status": 404,
+      "method": "POST",
+      "url": "http://127.0.0.1:5173/api/send-email"
+    }
+  ],
+  "accessibility": [
+    {
+      "route": "/projects/devflow",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 7,
+          "targets": [
+            [
+              "div:nth-child(1) > .text-background\\/60.mb-4.tracking-widest"
+            ],
+            [
+              "div:nth-child(2) > .text-background\\/60.mb-4.tracking-widest"
+            ],
+            [
+              "div:nth-child(3) > .text-background\\/60.mb-4.tracking-widest"
+            ],
+            [
+              ".max-w-7xl > .label-md.text-\\[\\#474552\\]"
+            ],
+            [
+              "a[href$=\"mdArshad10\"]"
+            ]
+          ]
+        },
+        {
+          "id": "heading-order",
+          "impact": "moderate",
+          "help": "Heading levels should only increase by one",
+          "nodes": 1,
+          "targets": [
+            [
+              ".duration-500.hover\\:border-primary.p-8:nth-child(1) > h4"
+            ]
+          ]
+        },
+        {
+          "id": "landmark-one-main",
+          "impact": "moderate",
+          "help": "Document should have one main landmark",
+          "nodes": 1,
+          "targets": [
+            [
+              "html"
+            ]
+          ]
+        },
+        {
+          "id": "region",
+          "impact": "moderate",
+          "help": "All page content should be contained by landmarks",
+          "nodes": 11,
+          "targets": [
+            [
+              ".z-10"
+            ],
+            [
+              ".py-24.sm\\:py-32:nth-child(2)"
+            ],
+            [
+              ".sm\\:items-end"
+            ],
+            [
+              "a[href$=\"nexus-architecture\"] > div:nth-child(1) > .mb-6.justify-between.items-center > .group-hover\\:text-background.text-primary.tracking-widest"
+            ],
+            [
+              "a[href$=\"nexus-architecture\"] > div:nth-child(1) > h3"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/does-not-exist",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 5,
+          "targets": [
+            [
+              "#not-found-back-home"
+            ],
+            [
+              ".max-w-7xl > p"
+            ],
+            [
+              "a[href$=\"mdArshad10\"]"
+            ],
+            [
+              ".hover\\:text-\\[\\#928f9d\\][target=\"_blank\"][rel=\"noopener noreferrer\"]:nth-child(2)"
+            ],
+            [
+              ".hover\\:text-\\[\\#928f9d\\].text-\\[\\#474552\\].label-md:nth-child(3)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 6,
+          "targets": [
+            [
+              ".text-primary-foreground > .tracking-wider.text-sm.font-bold"
+            ],
+            [
+              ".border-border > .tracking-wider.text-sm.font-bold"
+            ],
+            [
+              ".max-w-7xl > .label-md.text-\\[\\#474552\\]"
+            ],
+            [
+              ".hover\\:text-\\[\\#928f9d\\].label-md[href$=\"mdArshad10\"]"
+            ],
+            [
+              ".hover\\:text-\\[\\#928f9d\\].label-md.text-\\[\\#474552\\]:nth-child(2)"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "route": "/",
+      "width": 1920,
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 1567.765380859375,
+            "y": -409.439697265625,
+            "width": 1471.46923828125,
+            "height": 2100.87939453125,
+            "top": -409.439697265625,
+            "right": 3039.234619140625,
+            "bottom": 1691.439697265625,
+            "left": 1567.765380859375
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1920,
+      "viewportWidth": 1920,
+      "scrollWidth": 1920,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 997.5370483398438,
+            "y": -406.2282409667969,
+            "width": 1459.92578125,
+            "height": 2084.39404296875,
+            "top": -406.2282409667969,
+            "right": 2457.4628295898438,
+            "bottom": 1678.1658020019531,
+            "left": 997.5370483398438
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1440,
+      "viewportWidth": 1440,
+      "scrollWidth": 1440,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 869.2130126953125,
+            "y": -370.78955078125,
+            "width": 1332.5740966796875,
+            "height": 1902.5166015625,
+            "top": -370.78955078125,
+            "right": 2201.787109375,
+            "bottom": 1531.72705078125,
+            "left": 869.2130126953125
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1280,
+      "viewportWidth": 1280,
+      "scrollWidth": 1280,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 645.7072143554688,
+            "y": -324.2261047363281,
+            "width": 1165.17919921875,
+            "height": 1663.4521484375,
+            "top": -324.2261047363281,
+            "right": 1810.8864135742188,
+            "bottom": 1339.2260437011719,
+            "left": 645.7072143554688
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 1024,
+      "viewportWidth": 1024,
+      "scrollWidth": 1024,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": 327.3731384277344,
+            "y": -330.4196472167969,
+            "width": 1187.441162109375,
+            "height": 1695.24560546875,
+            "top": -330.4196472167969,
+            "right": 1514.8143005371094,
+            "bottom": 1364.8259582519531,
+            "left": 327.3731384277344
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "lg:col-span-3 flex flex-col justify-end lg:pb-4 transition-all delay-300 duration-1000 ease-out translate-x-8 opacity-0",
+          "text": "Full Stack Developer with 1+ years of hands-on experience building and deploying",
+          "rect": {
+            "x": 56,
+            "y": 622.15625,
+            "width": 720,
+            "height": 332.25,
+            "top": 622.15625,
+            "right": 776,
+            "bottom": 954.40625,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex flex-col gap-4",
+          "text": "Download ResumeView Projects",
+          "rect": {
+            "x": 56,
+            "y": 816.40625,
+            "width": 720,
+            "height": 138,
+            "top": 816.40625,
+            "right": 776,
+            "bottom": 954.40625,
+            "left": 56
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group relative flex w-full items-center justify-between bg-primary px-6 py-5 text-primary-foreground transition-all hover:bg-primary/90",
+          "text": "Download Resume",
+          "rect": {
+            "x": 56,
+            "y": 816.40625,
+            "width": 720,
+            "height": 60,
+            "top": 816.40625,
+            "right": 776,
+            "bottom": 876.40625,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3",
+          "text": "",
+          "rect": {
+            "x": 64,
+            "y": 824.40625,
+            "width": 720,
+            "height": 60,
+            "top": 824.40625,
+            "right": 784,
+            "bottom": 884.40625,
+            "left": 64
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted",
+          "text": "View Projects",
+          "rect": {
+            "x": 56,
+            "y": 892.40625,
+            "width": 720,
+            "height": 62,
+            "top": 892.40625,
+            "right": 776,
+            "bottom": 954.40625,
+            "left": 56
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 768,
+      "viewportWidth": 768,
+      "scrollWidth": 768,
+      "overflow": false,
+      "offenders": []
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "viewportWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "offenders": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "pointer-events-none absolute -top-[50%] -right-[20%] h-[200%] w-[1px] bg-primary/20 rotate-[35deg]",
+          "text": "",
+          "rect": {
+            "x": -207.72628784179688,
+            "y": -365.7557678222656,
+            "width": 1314.45263671875,
+            "height": 1876.636474609375,
+            "top": -365.7557678222656,
+            "right": 1106.7263488769531,
+            "bottom": 1510.8807067871094,
+            "left": -207.72628784179688
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "lg:col-span-3 flex flex-col justify-end lg:pb-4 transition-all delay-300 duration-1000 ease-out translate-x-8 opacity-0",
+          "text": "Full Stack Developer with 1+ years of hands-on experience building and deploying",
+          "rect": {
+            "x": 56,
+            "y": 645.125,
+            "width": 327,
+            "height": 420,
+            "top": 645.125,
+            "right": 383,
+            "bottom": 1065.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "p",
+          "id": "",
+          "className": "text-lg lg:text-xl font-light text-muted-foreground mb-12 border-l-2 border-primary/50 pl-6 max-w-md leading-relaxed",
+          "text": "Full Stack Developer with 1+ years of hands-on experience building and deploying",
+          "rect": {
+            "x": 56,
+            "y": 645.125,
+            "width": 327,
+            "height": 234,
+            "top": 645.125,
+            "right": 383,
+            "bottom": 879.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "flex flex-col gap-4",
+          "text": "Download ResumeView Projects",
+          "rect": {
+            "x": 56,
+            "y": 927.125,
+            "width": 327,
+            "height": 138,
+            "top": 927.125,
+            "right": 383,
+            "bottom": 1065.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group relative flex w-full items-center justify-between bg-primary px-6 py-5 text-primary-foreground transition-all hover:bg-primary/90",
+          "text": "Download Resume",
+          "rect": {
+            "x": 56,
+            "y": 927.125,
+            "width": 327,
+            "height": 60,
+            "top": 927.125,
+            "right": 383,
+            "bottom": 987.125,
+            "left": 56
+          }
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "absolute inset-0 -z-10 translate-x-2 translate-y-2 bg-primary/20 transition-transform group-hover:translate-x-3 group-hover:translate-y-3",
+          "text": "",
+          "rect": {
+            "x": 64,
+            "y": 935.125,
+            "width": 327,
+            "height": 60,
+            "top": 935.125,
+            "right": 391,
+            "bottom": 995.125,
+            "left": 64
+          }
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "group flex w-full items-center justify-between border border-border bg-background px-6 py-5 text-foreground transition-colors hover:bg-muted",
+          "text": "View Projects",
+          "rect": {
+            "x": 56,
+            "y": 1003.125,
+            "width": 327,
+            "height": 62,
+            "top": 1003.125,
+            "right": 383,
+            "bottom": 1065.125,
+            "left": 56
+          }
+        }
+      ]
+    },
+    {
+      "route": "/projects/devflow",
+      "width": 375,
+      "viewportWidth": 375,
+      "scrollWidth": 375,
+      "overflow": false,
+      "offenders": []
+    }
+  ],
+  "performance": {
+    "lcp": 64,
+    "cls": 0,
+    "inp": 0
+  },
+  "reducedMotion": {
+    "requested": true,
+    "heroTransitionDuration": "1s",
+    "navTransitionDuration": "0.3s"
+  },
+  "summary": {
+    "manifestEntries": 21,
+    "screenshots": 11,
+    "consoleWarnings": 0,
+    "consoleErrors": 2,
+    "network5xx": 0,
+    "network4xx": 2,
+    "axeCritical": 0,
+    "axeSerious": 3,
+    "layoutCollapses": 0
+  }
+}

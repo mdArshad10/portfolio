@@ -5,7 +5,7 @@ import { ContactSection } from "@/components/ContactSection";
 
 export function HomePage() {
   return (
-    <main>
+    <main id="main-content">
       <HeroSection />
       <ProjectsSection />
       <SkillsSection />

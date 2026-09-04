@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Md. Arshad",
   tagline: "Full-stack developer who ships clean, user-focused web apps.",
   subtitle:
-    "Full Stack Developer with 1+ years of hands-on experience building and deploying web applications end-to-end. From designing responsive interfaces to building RESTful APIs and managing databases — I take features from idea to production.",
+    "I build responsive interfaces, dependable APIs, and production-ready web products. I take features from idea to deployment.",
   email: "arshadwebdeveloper10@gmail.com",
   location: "Kolkata, West Bengal, India",
   github: "https://github.com/mdArshad10",
@@ -15,6 +15,7 @@ export const skills = {
   "Core Languages": ["TypeScript", "JavaScript"],
   "Frontend": ["React.js", "React Native", "Expo"],
   "Backend": ["Node.js", "Express.js", "Nest.js"],
+  "GenAI & Automation": ["OpenAI SDK", "LangChain", "Inngest"],
   "Styling & UI": ["Tailwind CSS", "Shadcn UI"],
   "Database & ORM": ["MongoDB", "PostgreSQL", "Mongoose", "Drizzle ORM"],
   "Tooling & DevOps": ["Vite", "Turborepo", "Docker", "Git"],
@@ -33,7 +34,7 @@ export const projects = [
     tags: ["Full-Stack", "React", "Node.js"],
     featured: true,
     links: {
-      github: "https://github.com",
+      github: null,
       live: null,
     },
     problem:
@@ -76,7 +77,7 @@ export const projects = [
     tags: ["Data Viz", "React", "WebSockets"],
     featured: true,
     links: {
-      github: "https://github.com",
+      github: null,
       live: null,
     },
     problem:
@@ -120,7 +121,7 @@ export const projects = [
     featured: false,
     links: {
       github: null,
-      live: "https://example.com",
+      live: null,
     },
     problem:
       "A large enterprise with 12 product teams was shipping inconsistent UIs, causing poor user trust and massive redundant engineering effort.",
