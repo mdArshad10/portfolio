@@ -1,6 +1,5 @@
 import { useEffect, type ReactNode } from "react"
-import { Link } from "react-router-dom"
-import { ArrowLeft, ShieldCheck } from "lucide-react"
+import {  ShieldCheck } from "lucide-react"
 import { personalInfo } from "@/data/portfolio"
 
 const lastUpdated = "October 25, 2026"
@@ -48,15 +47,8 @@ export function PrivacyPolicyPage() {
 
   return (
     <main id="main-content">
-      <section className="border-b border-border pt-32 pb-14 sm:pt-40 sm:pb-20">
+      <section className="border-b border-border pt-16 pb-14 sm:pt-40 sm:pb-20">
         <div className="site-shell">
-          <Link
-            to="/"
-            className="group mb-12 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-            Back to portfolio
-          </Link>
 
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
             <div>
