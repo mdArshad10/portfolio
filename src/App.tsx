@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import { HomePage } from "@/pages/HomePage"
 import { ProjectDetailPage } from "@/pages/ProjectDetailPage"
+import { PrivacyPolicyPage } from "@/pages/PrivacyPolicyPage"
 import { NotFoundPage } from "./pages/NotFoundPage"
 
 export function App() {
@@ -18,6 +19,8 @@ export function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
+          {/* Intentionally unlisted: not linked from the navbar, footer, or sitemap. */}
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
